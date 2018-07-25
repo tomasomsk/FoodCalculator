@@ -44,7 +44,7 @@ public class Props {
         }
     }
 
-    public String getProperty(String propertyName) {
+    public static String getProperty(String propertyName) {
         initializeProperties();
         return properties.getProperty(propertyName);
     }

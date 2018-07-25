@@ -1,11 +1,18 @@
 package gui;
 
+import apiobjectswithname.ObjectsWithNameList;
+import importfromoutside.ImportFromExcel;
+import model.FoodItem;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class Test extends JFrame {
-    private JPanel rootPanel;
+import static importfromoutside.ImportFromExcel.importFoodItems;
+
+public class GuiForm extends JFrame {
     private JPanel mainPanel;
+    private JPanel rootPanel;
     private JButton inBreakfast;
     private JButton inLunch;
     private JButton inSecondBreakfast;
@@ -16,22 +23,197 @@ public class Test extends JFrame {
     private JButton deleteFromSecondBreakfast;
     private JButton deleteFromDinner;
     private JButton deleteFromSecondDinner;
-    private JList foodItemsList;
+    private JList foodItemsJList;
+    private DefaultListModel foodItemsJListModel;
+    public ObjectsWithNameList<FoodItem> foodItemsSimpleList;
     private JList breakfast;
     private JList lunch;
     private JList secondBreakfast;
     private JList dinner;
     private JList secondDinner;
+    public static final String FOOD_ITEMS_FORMAT = " (Белки = %s, Углеводы = %s, Жиры = %s, Каллории = %s)";
 
-    private Test() {
+    public GuiForm() {
         setContentPane(mainPanel);
         setExtendedState(MAXIMIZED_BOTH);
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public static void main(String[] args) {
-        new Test();
+    public void fillFoodItemsList() {
+        for (FoodItem foodItem : foodItemsSimpleList.getList()) {
+            foodItemsJListModel.addElement(foodItem.getName() +
+            String.format(FOOD_ITEMS_FORMAT,
+                    foodItem.getNutrValue().getProtein(),
+                    foodItem.getNutrValue().getCarbo(),
+                    foodItem.getNutrValue().getFats(),
+                    foodItem.getNutrValue().getCallories()));
+        }
+        foodItemsJList.setModel(foodItemsJListModel);
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public void setMainPanel(JPanel mainPanel) {
+        this.mainPanel = mainPanel;
+    }
+
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
+
+    public void setRootPanel(JPanel rootPanel) {
+        this.rootPanel = rootPanel;
+    }
+
+    public JButton getInBreakfast() {
+        return inBreakfast;
+    }
+
+    public void setInBreakfast(JButton inBreakfast) {
+        this.inBreakfast = inBreakfast;
+    }
+
+    public JButton getInLunch() {
+        return inLunch;
+    }
+
+    public void setInLunch(JButton inLunch) {
+        this.inLunch = inLunch;
+    }
+
+    public JButton getInSecondBreakfast() {
+        return inSecondBreakfast;
+    }
+
+    public void setInSecondBreakfast(JButton inSecondBreakfast) {
+        this.inSecondBreakfast = inSecondBreakfast;
+    }
+
+    public JButton getInDinner() {
+        return inDinner;
+    }
+
+    public void setInDinner(JButton inDinner) {
+        this.inDinner = inDinner;
+    }
+
+    public JButton getInSecondDinner() {
+        return inSecondDinner;
+    }
+
+    public void setInSecondDinner(JButton inSecondDinner) {
+        this.inSecondDinner = inSecondDinner;
+    }
+
+    public JButton getDeleteFromBreakfast() {
+        return deleteFromBreakfast;
+    }
+
+    public void setDeleteFromBreakfast(JButton deleteFromBreakfast) {
+        this.deleteFromBreakfast = deleteFromBreakfast;
+    }
+
+    public JButton getDeleteFromLunch() {
+        return deleteFromLunch;
+    }
+
+    public void setDeleteFromLunch(JButton deleteFromLunch) {
+        this.deleteFromLunch = deleteFromLunch;
+    }
+
+    public JButton getDeleteFromSecondBreakfast() {
+        return deleteFromSecondBreakfast;
+    }
+
+    public void setDeleteFromSecondBreakfast(JButton deleteFromSecondBreakfast) {
+        this.deleteFromSecondBreakfast = deleteFromSecondBreakfast;
+    }
+
+    public JButton getDeleteFromDinner() {
+        return deleteFromDinner;
+    }
+
+    public void setDeleteFromDinner(JButton deleteFromDinner) {
+        this.deleteFromDinner = deleteFromDinner;
+    }
+
+    public JButton getDeleteFromSecondDinner() {
+        return deleteFromSecondDinner;
+    }
+
+    public void setDeleteFromSecondDinner(JButton deleteFromSecondDinner) {
+        this.deleteFromSecondDinner = deleteFromSecondDinner;
+    }
+
+    public JList getFoodItemsJList() {
+        return foodItemsJList;
+    }
+
+    public void setFoodItemsJList(JList foodItemsJList) {
+        this.foodItemsJList = foodItemsJList;
+    }
+
+    public DefaultListModel getFoodItemsJListModel() {
+        return foodItemsJListModel;
+    }
+
+    public void setFoodItemsJListModel(DefaultListModel foodItemsJListModel) {
+        this.foodItemsJListModel = foodItemsJListModel;
+    }
+
+    public ObjectsWithNameList<FoodItem> getFoodItemsSimpleList() {
+        return foodItemsSimpleList;
+    }
+
+    public void setFoodItemsSimpleList(ObjectsWithNameList<FoodItem> foodItemsSimpleList) {
+        this.foodItemsSimpleList = foodItemsSimpleList;
+    }
+
+    public JList getBreakfast() {
+        return breakfast;
+    }
+
+    public void setBreakfast(JList breakfast) {
+        this.breakfast = breakfast;
+    }
+
+    public JList getLunch() {
+        return lunch;
+    }
+
+    public void setLunch(JList lunch) {
+        this.lunch = lunch;
+    }
+
+    public JList getSecondBreakfast() {
+        return secondBreakfast;
+    }
+
+    public void setSecondBreakfast(JList secondBreakfast) {
+        this.secondBreakfast = secondBreakfast;
+    }
+
+    public JList getDinner() {
+        return dinner;
+    }
+
+    public void setDinner(JList dinner) {
+        this.dinner = dinner;
+    }
+
+    public JList getSecondDinner() {
+        return secondDinner;
+    }
+
+    public void setSecondDinner(JList secondDinner) {
+        this.secondDinner = secondDinner;
+    }
+
+    public static String getFoodItemsFormat() {
+        return FOOD_ITEMS_FORMAT;
     }
 
     {
@@ -61,8 +243,8 @@ public class Test extends JFrame {
         rootPanel.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 2, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_NORTHWEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(710, 400), new Dimension(710, 400), null, 0, false));
         final JScrollPane scrollPane2 = new JScrollPane();
         panel1.add(scrollPane2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        foodItemsList = new JList();
-        scrollPane2.setViewportView(foodItemsList);
+        foodItemsJList = new JList();
+        scrollPane2.setViewportView(foodItemsJList);
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         rootPanel.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_NORTH, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -335,4 +517,5 @@ public class Test extends JFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
+
 }

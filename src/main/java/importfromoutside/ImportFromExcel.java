@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import static properties.Props.getProperty;
+
 /**
  * Импорт продуктов питания из файла Excel
  */
@@ -25,7 +27,7 @@ public class ImportFromExcel {
     public static ObjectsWithNameList<FoodItem> importFoodItems() {
         ObjectsWithNameList<FoodItem> result = new ObjectsWithNameList<>(new ArrayList<>());
 
-        XSSFSheet sheet = getSheetFromFile(new Props().getProperty("food.items.file"), 0);
+        XSSFSheet sheet = getSheetFromFile(getProperty("food.items.file"), 0);
         Iterator<Row> rows = sheet.iterator();
 
         rows.next();
@@ -69,5 +71,4 @@ public class ImportFromExcel {
             return "";
         }
     }
-
 }
