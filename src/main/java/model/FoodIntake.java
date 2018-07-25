@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,6 +38,9 @@ public class FoodIntake {
     }
 
     public void addPortion(Portion portion) {
+        if (portions == null) {
+            portions = new ArrayList<>();
+        }
         portions.add(portion);
     }
 }

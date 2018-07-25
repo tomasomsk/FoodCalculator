@@ -20,6 +20,8 @@ public class GuiForm extends JFrame {
     private JTextField fatsOn100g;
     private JTextField calloriesOn100g;
 
+    private JTextField portionWeight;
+
     private JList breakfastList;
     private DefaultListModel breakfastListModel;
     public static FoodIntake breakfastObject;
@@ -49,7 +51,7 @@ public class GuiForm extends JFrame {
     public static FoodIntake secondDinnerObject;
     private JButton inSecondDinner;
     private JButton deleteFromSecondDinnerButton;
-    private JTextField textField1;
+
 
 
     public static final String FOOD_ITEMS_FORMAT = "     (Белки:   %s     |     Углеводы:   %s,     |     Жиры:   %s     |     Каллории:   %s)";
@@ -138,6 +140,14 @@ public class GuiForm extends JFrame {
 
     public JTextField getProteinsOn100g() {
         return proteinsOn100g;
+    }
+
+    public JTextField getPortionWeight() {
+        return portionWeight;
+    }
+
+    public void setPortionWeight(JTextField portionWeight) {
+        this.portionWeight = portionWeight;
     }
 
     public void setProteinsOn100g(JTextField proteinsOn100g) {
@@ -656,8 +666,8 @@ public class GuiForm extends JFrame {
         final JPanel panel24 = new JPanel();
         panel24.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         rootPanel.add(panel24, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_SOUTHWEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        textField1 = new JTextField();
-        panel24.add(textField1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
+        portionWeight = new JTextField();
+        panel24.add(portionWeight, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         final JLabel label36 = new JLabel();
         label36.setText("гр");
         panel24.add(label36, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
