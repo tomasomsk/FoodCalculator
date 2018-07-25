@@ -9,6 +9,7 @@ public class NutrititionalValue {
     private Double protein;
     private Double carbo;
     private Double fats;
+    private Double callories;
 
     public Double getProtein() {
         return protein;
@@ -20,6 +21,10 @@ public class NutrititionalValue {
 
     public Double getCarbo() {
         return carbo;
+    }
+
+    public Double getCallories() {
+        return callories;
     }
 
     public void setCarbo(Double carbo) {
@@ -34,9 +39,14 @@ public class NutrititionalValue {
         this.fats = fats;
     }
 
-    public void setNutritionalValues(Double proptein, Double carbo, Double fats) {
+    public void setCallories(Double callories) {
+        this.callories = callories;
+    }
+
+    public void setNutritionalValues(Double proptein, Double carbo, Double fats, Double callories) {
         this.protein = proptein;
         this.carbo = carbo;
         this.fats = fats;
+        this.callories = callories;
     }
 }

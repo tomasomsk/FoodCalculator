@@ -37,7 +37,8 @@ public class ImportFromExcel {
             NutrititionalValue nutrValue = new NutrititionalValue();
             nutrValue.setNutritionalValues(Double.parseDouble(getValueFromCell(row.getCell(1))),
                     Double.parseDouble(getValueFromCell(row.getCell(2))),
-                    Double.parseDouble(getValueFromCell(row.getCell(3))));
+                    Double.parseDouble(getValueFromCell(row.getCell(3))),
+                    Double.parseDouble(getValueFromCell(row.getCell(4))));
             foodItem.setNutrValue(nutrValue);
             result.add(foodItem);
         }
