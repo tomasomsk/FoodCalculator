@@ -101,7 +101,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="15a7b" class="javax.swing.JList" binding="breakfast">
+                      <component id="15a7b" class="javax.swing.JList" binding="breakfastList">
                         <constraints/>
                         <properties/>
                       </component>
@@ -230,7 +230,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="8cfd5" class="javax.swing.JList" binding="lunch">
+                      <component id="8cfd5" class="javax.swing.JList" binding="lunchList">
                         <constraints/>
                         <properties/>
                       </component>
@@ -341,7 +341,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="34fa3" class="javax.swing.JList" binding="secondBreakfast">
+                      <component id="34fa3" class="javax.swing.JList" binding="secondBreakfastList">
                         <constraints/>
                         <properties/>
                       </component>
@@ -802,7 +802,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="a1cc7" class="javax.swing.JButton" binding="inBreakfast" default-binding="true">
+                  <component id="a1cc7" class="javax.swing.JButton" binding="inBreakfastButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -818,7 +818,7 @@
                       <text value="В обед"/>
                     </properties>
                   </component>
-                  <component id="2c97" class="javax.swing.JButton" binding="inSecondBreakfast" default-binding="true">
+                  <component id="2c97" class="javax.swing.JButton" binding="inSecondBreakfastButton" default-binding="true">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -860,7 +860,7 @@
                       <text value="Белки"/>
                     </properties>
                   </component>
-                  <component id="78c" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+                  <component id="78c" class="javax.swing.JTextField" binding="proteinsOn100g">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="5" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="80" height="-1"/>
@@ -886,7 +886,7 @@
                       <text value="Углеводы"/>
                     </properties>
                   </component>
-                  <component id="49773" class="javax.swing.JTextField" default-binding="true">
+                  <component id="49773" class="javax.swing.JTextField" binding="carboOn100g">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="5" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="80" height="-1"/>
@@ -912,7 +912,7 @@
                       <text value="Жиры"/>
                     </properties>
                   </component>
-                  <component id="351ac" class="javax.swing.JTextField" default-binding="true">
+                  <component id="351ac" class="javax.swing.JTextField" binding="fatsOn100g">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="5" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="80" height="-1"/>
@@ -938,7 +938,7 @@
                       <text value="Каллории"/>
                     </properties>
                   </component>
-                  <component id="2f626" class="javax.swing.JTextField" default-binding="true">
+                  <component id="2f626" class="javax.swing.JTextField" binding="calloriesOn100g">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="5" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="80" height="-1"/>

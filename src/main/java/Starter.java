@@ -1,3 +1,4 @@
+import gui.listeners.FoodItemsListSelectionHandler;
 import gui.GuiForm;
 
 import javax.swing.*;
@@ -8,9 +9,11 @@ public class Starter {
 
     public static void main(String[] args) {
         GuiForm gui = new GuiForm();
-        gui.setFoodItemsSimpleList(importFoodItems());
+        gui.foodItemsSimpleList = importFoodItems();
         gui.setFoodItemsJListModel(new DefaultListModel());
         gui.fillFoodItemsList();
+
+        gui.getFoodItemsJList().getSelectionModel().addListSelectionListener(new FoodItemsListSelectionHandler(gui));
     }
 
 }
