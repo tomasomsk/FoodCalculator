@@ -47,4 +47,8 @@ public class FoodIntake {
         }
         portions.add(portion);
     }
+
+    public void removePortion(Portion portion) {
+        portions.remove(portion);
+    }
 }

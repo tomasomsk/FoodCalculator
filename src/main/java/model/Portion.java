@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * Порция еды
  */
@@ -32,5 +34,21 @@ public class Portion {
 
     public void setNutrValue(NutrititionalValue nutrValue) {
         this.nutrValue = nutrValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Portion portion = (Portion) o;
+        return Objects.equals(foodItem, portion.foodItem) &&
+                Objects.equals(weight, portion.weight) &&
+                Objects.equals(nutrValue, portion.nutrValue);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(foodItem, weight, nutrValue);
     }
 }
