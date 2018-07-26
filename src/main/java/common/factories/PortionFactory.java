@@ -1,6 +1,5 @@
 package common.factories;
 
-import common.CommonMethods;
 import model.FoodItem;
 import model.NutrititionalValue;
 import model.Portion;

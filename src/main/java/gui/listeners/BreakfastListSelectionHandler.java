@@ -20,11 +20,11 @@ public class BreakfastListSelectionHandler extends Handlers implements ListSelec
     @Override
     public void valueChanged(ListSelectionEvent e) {
         ListSelectionModel lsm = (ListSelectionModel) e.getSource();
-        FoodItem foodItem = foodItemsSimpleList.getElementWithName(getValueFromSelection(lsm));
-        gui.getProteinsOn100g().setText(String.valueOf(foodItem.getNutrValue().getProtein()));
-        gui.getCarboOn100g().setText(String.valueOf(foodItem.getNutrValue().getCarbo()));
-        gui.getFatsOn100g().setText(String.valueOf(foodItem.getNutrValue().getFats()));
-        gui.getCalloriesOn100g().setText(String.valueOf(foodItem.getNutrValue().getCallories()));
+        FoodItem foodItem = foodItemsSimpleList.getElementWithName(getValueFromSelection(lsm, gui.getBreakfastListModel()));
+        gui.getBreakfastProteinForItem().setText(String.valueOf(foodItem.getNutrValue().getProtein()));
+        gui.getBreakfastCarboForItem().setText(String.valueOf(foodItem.getNutrValue().getCarbo()));
+        gui.getBreakfastFatsForItem().setText(String.valueOf(foodItem.getNutrValue().getFats()));
+        gui.getBreakfastCalloriesForItem().setText(String.valueOf(foodItem.getNutrValue().getCallories()));
     }
 
 

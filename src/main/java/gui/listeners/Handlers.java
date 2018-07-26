@@ -15,13 +15,14 @@ public class Handlers {
         this.gui = gui;
     }
 
-    public String getValueFromSelection(ListSelectionModel lsm) {
+    public String getValueFromSelection(ListSelectionModel lsm, DefaultListModel listModel) {
         int minIndex = lsm.getMinSelectionIndex();
         int maxIndex = lsm.getMaxSelectionIndex();
         FoodItem foodItem = new FoodItem();
         for (int i = minIndex; i <= maxIndex; i++) {
             if (lsm.isSelectedIndex(i)) {
-                return (String) gui.getFoodItemsJListModel().get(i);
+
+                return (String) listModel.get(i);
             }
         }
         return null;

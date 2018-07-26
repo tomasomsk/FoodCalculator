@@ -4,7 +4,6 @@ import gui.GuiForm;
 import model.FoodItem;
 import model.Portion;
 
-import javax.sound.sampled.Port;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +21,7 @@ public class BreakfastButtonHandler extends Handlers implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (getValueFromSelection(gui.getFoodItemsJList().getSelectionModel()) == null) {
+        if (getValueFromSelection(gui.getFoodItemsJList().getSelectionModel(), gui.getFoodItemsJListModel()) == null) {
             JOptionPane.showMessageDialog(new JFrame(), "Не выбран продукт из списка продуктов");
         } else {
             if (gui.getPortionWeight().getText().equals("")) {
@@ -30,7 +29,8 @@ public class BreakfastButtonHandler extends Handlers implements ActionListener {
             } else {
                 FoodItem foodItem = foodItemsSimpleList.getElementWithName(
                         getValueFromSelection(
-                                gui.getFoodItemsJList().getSelectionModel()));
+                                gui.getFoodItemsJList().getSelectionModel(),
+                                gui.getFoodItemsJListModel()));
                 Double portionWeight = Double.parseDouble(gui.getPortionWeight().getText());
                 Portion portion = makePortion(foodItem, portionWeight);
 
@@ -47,7 +47,7 @@ public class BreakfastButtonHandler extends Handlers implements ActionListener {
                     breakfastFatsCommon += portionInFoodIntake.getNutrValue().getFats();
                     breakfastCalloriesCommon += portionInFoodIntake.getNutrValue().getCallories();
                 }
-                gui.getBreakfastList().setModel(gui.getBreakfastListModel());
+                gui.getBreakfastJList().setModel(gui.getBreakfastListModel());
                 gui.getBreakfastProteinsCommon().setText(String.valueOf(breakfastProteinCommon));
                 gui.getBreakfastCarboCommon().setText(String.valueOf(breakfastCarboCommon));
                 gui.getBreakfastFatsCommon().setText(String.valueOf(breakfastFatsCommon));

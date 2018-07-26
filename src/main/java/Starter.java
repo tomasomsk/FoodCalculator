@@ -1,4 +1,5 @@
 import gui.listeners.BreakfastButtonHandler;
+import gui.listeners.BreakfastListSelectionHandler;
 import gui.listeners.FoodItemsListSelectionHandler;
 import gui.GuiForm;
 
@@ -15,6 +16,7 @@ public class Starter {
 
         gui.getFoodItemsJList().getSelectionModel().addListSelectionListener(new FoodItemsListSelectionHandler(gui));
         gui.getInBreakfastButton().addActionListener(new BreakfastButtonHandler(gui));
+        gui.getBreakfastJList().getSelectionModel().addListSelectionListener(new BreakfastListSelectionHandler(gui));
     }
 
 }
