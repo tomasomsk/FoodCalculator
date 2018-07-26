@@ -6,7 +6,7 @@ package model;
 public class Portion {
 
     private FoodItem foodItem;
-    private Integer weight;
+    private Double weight;
     private NutrititionalValue nutrValue;
 
     public FoodItem getFoodItem() {
@@ -18,11 +18,11 @@ public class Portion {
 
     }
 
-    public Integer getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 

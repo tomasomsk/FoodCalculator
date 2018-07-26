@@ -13,6 +13,10 @@ public class FoodIntake {
     private List<Portion> portions;
     private NutrititionalValue nutrValue;
 
+    public FoodIntake(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
