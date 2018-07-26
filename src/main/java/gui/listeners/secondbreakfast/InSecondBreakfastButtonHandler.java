@@ -1,6 +1,8 @@
-package gui.listeners;
+package gui.listeners.secondbreakfast;
 
 import gui.GuiForm;
+import gui.listeners.Handlers;
+import model.FoodIntake;
 import model.FoodItem;
 import model.Portion;
 
@@ -11,10 +13,11 @@ import java.awt.event.ActionListener;
 import static common.factories.PortionFactory.makePortion;
 import static gui.GuiForm.breakfastObject;
 import static gui.GuiForm.foodItemsSimpleList;
+import static gui.GuiForm.secondBreakfastObject;
 
-public class InBreakfastButtonHandler extends Handlers implements ActionListener {
+public class InSecondBreakfastButtonHandler extends Handlers implements ActionListener {
 
-    public InBreakfastButtonHandler(GuiForm gui) {
+    public InSecondBreakfastButtonHandler(GuiForm gui) {
         super(gui);
     }
 
@@ -33,14 +36,22 @@ public class InBreakfastButtonHandler extends Handlers implements ActionListener
                                 gui.getFoodItemsJListModel()));
                 Double portionWeight = Double.parseDouble(gui.getPortionWeight().getText());
                 Portion portion = makePortion(foodItem, portionWeight);
-                breakfastObject.addPortion(portion);
+                secondBreakfastObject.addPortion(portion);
 
-                calculateBreakfastIndicators(portion, PLUS);
-
+                calculateSecondBreakfastIndicators(portion, secondBreakfastObject, PLUS,
+                        gui.getSecondBreakfastListModel(),
+                        gui.getSecondBreakfastJList(),
+                        gui.getSecondBreakfastProteinsCommon(),
+                        gui.getSecondBreakfastCarboCommon(),
+                        gui.getSecondBreakfastFatsCommon(),
+                        gui.getSecondBreakfastCalloriesCommon(),
+                        gui.getSecondBreakfastWeightForItem(),
+                        gui.getSecondBreakfastProteinForItem(),
+                        gui.getSecondBreakfastCarboForItem(),
+                        gui.getSecondBreakfastFatsForItem(),
+                        gui.getSecondBreakfastCalloriesForItem());
             }
         }
-
-
     }
 
 
