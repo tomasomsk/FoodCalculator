@@ -274,7 +274,7 @@
                       </component>
                     </children>
                   </scrollpane>
-                  <component id="f8c97" class="javax.swing.JTextField" default-binding="true">
+                  <component id="f8c97" class="javax.swing.JTextField" binding="lunchCalloriesForItem">
                     <constraints>
                       <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <minimum-size width="50" height="-1"/>
@@ -283,7 +283,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="8d54d" class="javax.swing.JTextField" default-binding="true">
+                  <component id="8d54d" class="javax.swing.JTextField" binding="lunchCarboForItem">
                     <constraints>
                       <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="35" height="-1"/>
@@ -291,7 +291,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="f1a05" class="javax.swing.JTextField" default-binding="true">
+                  <component id="f1a05" class="javax.swing.JTextField" binding="lunchFatsForItem">
                     <constraints>
                       <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="35" height="-1"/>
@@ -347,7 +347,7 @@
                       <text value="Белки"/>
                     </properties>
                   </component>
-                  <component id="cd1ed" class="javax.swing.JTextField" default-binding="true">
+                  <component id="cd1ed" class="javax.swing.JTextField" binding="lunchProteinForItem">
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="35" height="-1"/>
@@ -355,7 +355,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="b6c43" class="javax.swing.JTextField">
+                  <component id="b6c43" class="javax.swing.JTextField" binding="lunchWeightForItem">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <minimum-size width="50" height="-1"/>
@@ -385,7 +385,7 @@
                       <text value="Белки"/>
                     </properties>
                   </component>
-                  <component id="7d5fd" class="javax.swing.JTextField" default-binding="true">
+                  <component id="7d5fd" class="javax.swing.JTextField" binding="lunchProteinsCommon">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -401,7 +401,7 @@
                       <text value="Углеводы"/>
                     </properties>
                   </component>
-                  <component id="6afff" class="javax.swing.JTextField" default-binding="true">
+                  <component id="6afff" class="javax.swing.JTextField" binding="lunchCarboCommon">
                     <constraints>
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -417,7 +417,7 @@
                       <text value="Жиры"/>
                     </properties>
                   </component>
-                  <component id="d4fcb" class="javax.swing.JTextField" default-binding="true">
+                  <component id="d4fcb" class="javax.swing.JTextField" binding="lunchFatsCommon">
                     <constraints>
                       <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -433,7 +433,7 @@
                       <text value="Каллории"/>
                     </properties>
                   </component>
-                  <component id="eb9bb" class="javax.swing.JTextField" default-binding="true">
+                  <component id="eb9bb" class="javax.swing.JTextField" binding="lunchCalloriesCommon">
                     <constraints>
                       <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>

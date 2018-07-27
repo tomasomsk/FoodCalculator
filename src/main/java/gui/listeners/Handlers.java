@@ -181,6 +181,8 @@ public class Handlers {
     }
 
     public void setItemsTextFieldsForFoodIntake(ListSelectionEvent e,
+                                         FoodIntake foodIntakeObject,
+                                         DefaultListModel listModel,
                                          JTextField proteinForItem,
                                          JTextField carboForItem,
                                          JTextField fatsForItem,
@@ -188,12 +190,12 @@ public class Handlers {
                                          JTextField weightForItem) {
         ListSelectionModel lsm = (ListSelectionModel) e.getSource();
         if (!lsm.isSelectionEmpty()) {
-            FoodItem foodItem = foodItemsSimpleList.getElementWithName(getValueFromSelection(lsm, gui.getBreakfastListModel()));
+            FoodItem foodItem = foodItemsSimpleList.getElementWithName(getValueFromSelection(lsm, listModel));
             proteinForItem.setText(String.valueOf(foodItem.getNutrValue().getProtein()));
             carboForItem.setText(String.valueOf(foodItem.getNutrValue().getCarbo()));
             fatsForItem.setText(String.valueOf(foodItem.getNutrValue().getFats()));
             calloriesForItem.setText(String.valueOf(foodItem.getNutrValue().getCallories()));
-            weightForItem.setText(String.valueOf(breakfastObject.getPortions().stream()
+            weightForItem.setText(String.valueOf(foodIntakeObject.getPortions().stream()
                     .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
                     .collect(Collectors.toList()).get(0).getWeight()));
         }

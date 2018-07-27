@@ -6,13 +6,11 @@ import model.FoodIntake;
 import model.FoodItem;
 import model.Portion;
 
-import javax.sound.sampled.Port;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.stream.Collectors;
 
-import static common.factories.PortionFactory.makePortion;
 import static gui.GuiForm.breakfastObject;
 import static gui.GuiForm.foodItemsSimpleList;
 

@@ -33,7 +33,6 @@ public class InBreakfastButtonHandler extends Handlers implements ActionListener
                         getValueFromSelection(
                                 gui.getFoodItemsJList().getSelectionModel(),
                                 gui.getFoodItemsJListModel()));
-
                 if (breakfastObject.getPortions() != null &&
                         !breakfastObject.getPortions().stream()
                                 .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
@@ -42,7 +41,6 @@ public class InBreakfastButtonHandler extends Handlers implements ActionListener
                     JOptionPane.showMessageDialog(new JFrame(),
                             String.format(ADDING_THE_SAME_PRODUCT, breakfastObject.getName(), foodItem.getName()));
                 } else {
-
                     Double portionWeight = Double.parseDouble(gui.getPortionWeight().getText());
                     Portion portion = makePortion(foodItem, portionWeight);
 

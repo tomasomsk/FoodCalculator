@@ -57,6 +57,15 @@ public class GuiForm extends JFrame {
     public static FoodIntake lunchObject = new FoodIntake("Обед");
     private JButton inLunchButton;
     private JButton deleteFromLunchButton;
+    private JTextField lunchProteinsCommon;
+    private JTextField lunchCarboCommon;
+    private JTextField lunchFatsCommon;
+    private JTextField lunchCalloriesCommon;
+    private JTextField lunchWeightForItem;
+    private JTextField lunchProteinForItem;
+    private JTextField lunchCarboForItem;
+    private JTextField lunchFatsForItem;
+    private JTextField lunchCalloriesForItem;
 
     private JList dinnerJList;
     private DefaultListModel dinnerListModel;
@@ -103,6 +112,78 @@ public class GuiForm extends JFrame {
 
     public JPanel getRootPanel() {
         return rootPanel;
+    }
+
+    public JTextField getLunchProteinsCommon() {
+        return lunchProteinsCommon;
+    }
+
+    public void setLunchProteinsCommon(JTextField lunchProteinsCommon) {
+        this.lunchProteinsCommon = lunchProteinsCommon;
+    }
+
+    public JTextField getLunchCarboCommon() {
+        return lunchCarboCommon;
+    }
+
+    public void setLunchCarboCommon(JTextField lunchCarboCommon) {
+        this.lunchCarboCommon = lunchCarboCommon;
+    }
+
+    public JTextField getLunchFatsCommon() {
+        return lunchFatsCommon;
+    }
+
+    public void setLunchFatsCommon(JTextField lunchFatsCommon) {
+        this.lunchFatsCommon = lunchFatsCommon;
+    }
+
+    public JTextField getLunchCalloriesCommon() {
+        return lunchCalloriesCommon;
+    }
+
+    public void setLunchCalloriesCommon(JTextField lunchCalloriesCommon) {
+        this.lunchCalloriesCommon = lunchCalloriesCommon;
+    }
+
+    public JTextField getLunchWeightForItem() {
+        return lunchWeightForItem;
+    }
+
+    public void setLunchWeightForItem(JTextField lunchWeightForItem) {
+        this.lunchWeightForItem = lunchWeightForItem;
+    }
+
+    public JTextField getLunchProteinForItem() {
+        return lunchProteinForItem;
+    }
+
+    public void setLunchProteinForItem(JTextField lunchProteinForItem) {
+        this.lunchProteinForItem = lunchProteinForItem;
+    }
+
+    public JTextField getLunchCarboForItem() {
+        return lunchCarboForItem;
+    }
+
+    public void setLunchCarboForItem(JTextField lunchCarboForItem) {
+        this.lunchCarboForItem = lunchCarboForItem;
+    }
+
+    public JTextField getLunchFatsForItem() {
+        return lunchFatsForItem;
+    }
+
+    public void setLunchFatsForItem(JTextField lunchFatsForItem) {
+        this.lunchFatsForItem = lunchFatsForItem;
+    }
+
+    public JTextField getLunchCalloriesForItem() {
+        return lunchCalloriesForItem;
+    }
+
+    public void setLunchCalloriesForItem(JTextField lunchCalloriesForItem) {
+        this.lunchCalloriesForItem = lunchCalloriesForItem;
     }
 
     public void setRootPanel(JPanel rootPanel) {
