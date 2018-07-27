@@ -2,6 +2,7 @@ package gui.listeners.breakfast;
 
 import gui.GuiForm;
 import gui.listeners.Handlers;
+import model.FoodIntake;
 import model.FoodItem;
 import model.Portion;
 
@@ -26,13 +27,7 @@ public class DeleteFromBreakfastButtonHandler extends Handlers implements Action
         if (getValueFromSelection(gui.getBreakfastJList().getSelectionModel(), gui.getBreakfastListModel()) == null) {
             JOptionPane.showMessageDialog(new JFrame(), NO_SELECTION_IN_FOODINTAKE_SECTION);
         } else {
-            FoodItem foodItem = foodItemsSimpleList.getElementWithName(
-                    getValueFromSelection(
-                            gui.getBreakfastJList().getSelectionModel(),
-                            gui.getBreakfastListModel()));
-            Portion portion = breakfastObject.getPortions().stream()
-                    .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
-                    .collect(Collectors.toList()).get(0);
+            Portion portion = getPortionToDelete(gui.getBreakfastJList(), gui.getBreakfastListModel(), breakfastObject);
 
             breakfastObject.removePortion(portion);
 
@@ -49,5 +44,15 @@ public class DeleteFromBreakfastButtonHandler extends Handlers implements Action
                     gui.getBreakfastFatsForItem(),
                     gui.getBreakfastCalloriesForItem());
         }
+    }
+
+    public Portion getPortionToDelete(JList jlist, DefaultListModel jlistModel, FoodIntake foodIntakeObject) {
+        FoodItem foodItem = foodItemsSimpleList.getElementWithName(
+                getValueFromSelection(
+                        jlist.getSelectionModel(),
+                        jlistModel));
+        return foodIntakeObject.getPortions().stream()
+                .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
+                .collect(Collectors.toList()).get(0);
     }
 }
