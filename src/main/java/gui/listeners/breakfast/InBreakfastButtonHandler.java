@@ -8,6 +8,7 @@ import model.Portion;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.stream.Collectors;
 
 import static common.factories.PortionFactory.makePortion;
 import static gui.GuiForm.breakfastObject;
@@ -32,17 +33,35 @@ public class InBreakfastButtonHandler extends Handlers implements ActionListener
                         getValueFromSelection(
                                 gui.getFoodItemsJList().getSelectionModel(),
                                 gui.getFoodItemsJListModel()));
-                Double portionWeight = Double.parseDouble(gui.getPortionWeight().getText());
-                Portion portion = makePortion(foodItem, portionWeight);
-                breakfastObject.addPortion(portion);
 
-                calculateBreakfastIndicators(portion, PLUS);
+                if (breakfastObject.getPortions() != null &&
+                        !breakfastObject.getPortions().stream()
+                                .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
+                                .collect(Collectors.toList())
+                                .isEmpty()) {
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            String.format(ADDING_THE_SAME_PRODUCT, breakfastObject.getName(), foodItem.getName()));
+                } else {
 
+                    Double portionWeight = Double.parseDouble(gui.getPortionWeight().getText());
+                    Portion portion = makePortion(foodItem, portionWeight);
+
+                    breakfastObject.addPortion(portion);
+
+                    calculateFoodIntakeIndicators(portion, breakfastObject, PLUS,
+                            gui.getBreakfastListModel(),
+                            gui.getBreakfastJList(),
+                            gui.getBreakfastProteinsCommon(),
+                            gui.getBreakfastCarboCommon(),
+                            gui.getBreakfastFatsCommon(),
+                            gui.getBreakFastCalloriesCommon(),
+                            gui.getBreakfastWeightForItem(),
+                            gui.getBreakfastProteinForItem(),
+                            gui.getBreakfastCarboForItem(),
+                            gui.getBreakfastFatsForItem(),
+                            gui.getBreakfastCalloriesForItem());
+                }
             }
         }
-
-
     }
-
-
 }

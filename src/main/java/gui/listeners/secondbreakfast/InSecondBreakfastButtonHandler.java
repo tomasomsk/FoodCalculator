@@ -2,7 +2,6 @@ package gui.listeners.secondbreakfast;
 
 import gui.GuiForm;
 import gui.listeners.Handlers;
-import model.FoodIntake;
 import model.FoodItem;
 import model.Portion;
 
@@ -11,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static common.factories.PortionFactory.makePortion;
-import static gui.GuiForm.breakfastObject;
 import static gui.GuiForm.foodItemsSimpleList;
 import static gui.GuiForm.secondBreakfastObject;
 
@@ -38,7 +36,7 @@ public class InSecondBreakfastButtonHandler extends Handlers implements ActionLi
                 Portion portion = makePortion(foodItem, portionWeight);
                 secondBreakfastObject.addPortion(portion);
 
-                calculateSecondBreakfastIndicators(portion, secondBreakfastObject, PLUS,
+                calculateFoodIntakeIndicators(portion, secondBreakfastObject, PLUS,
                         gui.getSecondBreakfastListModel(),
                         gui.getSecondBreakfastJList(),
                         gui.getSecondBreakfastProteinsCommon(),

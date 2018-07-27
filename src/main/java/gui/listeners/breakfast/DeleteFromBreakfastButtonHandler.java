@@ -24,7 +24,7 @@ public class DeleteFromBreakfastButtonHandler extends Handlers implements Action
     @Override
     public void actionPerformed(ActionEvent e) {
         if (getValueFromSelection(gui.getBreakfastJList().getSelectionModel(), gui.getBreakfastListModel()) == null) {
-            JOptionPane.showMessageDialog(new JFrame(), String.format(NO_SELECTION_IN_FOODINTAKE_SECTION, " завтраке "));
+            JOptionPane.showMessageDialog(new JFrame(), NO_SELECTION_IN_FOODINTAKE_SECTION);
         } else {
             FoodItem foodItem = foodItemsSimpleList.getElementWithName(
                     getValueFromSelection(
@@ -36,9 +36,18 @@ public class DeleteFromBreakfastButtonHandler extends Handlers implements Action
 
             breakfastObject.removePortion(portion);
 
-            calculateBreakfastIndicators(portion, MINUS);
-
-
+            calculateFoodIntakeIndicators(portion, breakfastObject, MINUS,
+                    gui.getBreakfastListModel(),
+                    gui.getBreakfastJList(),
+                    gui.getBreakfastProteinsCommon(),
+                    gui.getBreakfastCarboCommon(),
+                    gui.getBreakfastFatsCommon(),
+                    gui.getBreakFastCalloriesCommon(),
+                    gui.getBreakfastWeightForItem(),
+                    gui.getBreakfastProteinForItem(),
+                    gui.getBreakfastCarboForItem(),
+                    gui.getBreakfastFatsForItem(),
+                    gui.getBreakfastCalloriesForItem());
         }
     }
 }

@@ -23,7 +23,7 @@ public class GuiForm extends JFrame {
 
     private JList breakfastJList;
     private DefaultListModel breakfastListModel = new DefaultListModel();
-    public static FoodIntake breakfastObject = new FoodIntake("Breakfast");
+    public static FoodIntake breakfastObject = new FoodIntake("Завтрак");
     private JButton inBreakfastButton;
     private JButton deleteFromBreakfastButton;
     private JTextField breakfastProteinsCommon;
@@ -39,7 +39,7 @@ public class GuiForm extends JFrame {
 
     private JList secondBreakfastJList;
     private DefaultListModel secondBreakfastListModel = new DefaultListModel();
-    public static FoodIntake secondBreakfastObject = new FoodIntake("SecondBreakfast");
+    public static FoodIntake secondBreakfastObject = new FoodIntake("Второй завтрак");
     private JButton inSecondBreakfastButton;
     private JButton deleteFromSecondBreakfastButton;
     private JTextField secondBreakfastProteinsCommon;
@@ -54,19 +54,19 @@ public class GuiForm extends JFrame {
 
     private JList lunchJList;
     private DefaultListModel lunchListModel;
-    public static FoodIntake lunchObject = new FoodIntake("Lunch");
+    public static FoodIntake lunchObject = new FoodIntake("Обед");
     private JButton inLunchButton;
     private JButton deleteFromLunchButton;
 
     private JList dinnerJList;
     private DefaultListModel dinnerListModel;
-    public static FoodIntake dinnerObject = new FoodIntake("Dinner");
+    public static FoodIntake dinnerObject = new FoodIntake("Ужин");
     private JButton inDinnerButton;
     private JButton deleteFromDinnerButton;
 
     private JList secondDinnerJList;
     private DefaultListModel secondDinnerListModel;
-    public static FoodIntake secondDinnerObject = new FoodIntake("SecondDinner");
+    public static FoodIntake secondDinnerObject = new FoodIntake("Второй ужин");
     private JButton inSecondDinner;
     private JButton deleteFromSecondDinnerButton;
 

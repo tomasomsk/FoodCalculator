@@ -1,6 +1,5 @@
 package gui.listeners;
 
-import apiobjectswithname.ObjectsWithNameList;
 import gui.GuiForm;
 import model.FoodItem;
 
@@ -11,8 +10,6 @@ import javax.swing.event.ListSelectionListener;
 import static gui.GuiForm.foodItemsSimpleList;
 
 public class FoodItemsListSelectionHandler extends Handlers implements ListSelectionListener {
-
-//    private GuiForm gui;
 
     public FoodItemsListSelectionHandler(GuiForm gui) {
         super(gui);
@@ -27,6 +24,7 @@ public class FoodItemsListSelectionHandler extends Handlers implements ListSelec
             gui.getCarboOn100g().setText(String.valueOf(foodItem.getNutrValue().getCarbo()));
             gui.getFatsOn100g().setText(String.valueOf(foodItem.getNutrValue().getFats()));
             gui.getCalloriesOn100g().setText(String.valueOf(foodItem.getNutrValue().getCallories()));
+            gui.getPortionWeight().setText("");
         }
     }
 }
