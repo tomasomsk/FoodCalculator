@@ -2,6 +2,7 @@ package gui.listeners.secondbreakfast;
 
 import gui.GuiForm;
 import gui.listeners.Handlers;
+import interfaces.Forms;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -10,7 +11,7 @@ import static gui.GuiForm.secondBreakfastObject;
 
 public class SecondBreakfastListSelectionHandler extends Handlers implements ListSelectionListener {
 
-    public SecondBreakfastListSelectionHandler(GuiForm gui) {
+    public SecondBreakfastListSelectionHandler(Forms gui) {
         super(gui);
     }
 

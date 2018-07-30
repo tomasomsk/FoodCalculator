@@ -2,6 +2,7 @@ package gui.listeners.lunch;
 
 import gui.GuiForm;
 import gui.listeners.Handlers;
+import interfaces.Forms;
 import model.FoodIntake;
 import model.FoodItem;
 import model.Portion;
@@ -16,7 +17,7 @@ import static gui.GuiForm.lunchObject;
 
 public class DeleteFromLunchButtonHandler extends Handlers implements ActionListener {
 
-    public DeleteFromLunchButtonHandler(GuiForm gui) {
+    public DeleteFromLunchButtonHandler(Forms gui) {
         super(gui);
     }
 

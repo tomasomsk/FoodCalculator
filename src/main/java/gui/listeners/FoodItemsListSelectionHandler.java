@@ -1,6 +1,7 @@
 package gui.listeners;
 
 import gui.GuiForm;
+import interfaces.Forms;
 import model.FoodItem;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import static gui.GuiForm.foodItemsSimpleList;
 
 public class FoodItemsListSelectionHandler extends Handlers implements ListSelectionListener {
 
-    public FoodItemsListSelectionHandler(GuiForm gui) {
+    public FoodItemsListSelectionHandler(Forms gui) {
         super(gui);
     }
 

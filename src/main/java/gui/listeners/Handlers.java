@@ -1,6 +1,7 @@
 package gui.listeners;
 
 import gui.GuiForm;
+import interfaces.Forms;
 import model.FoodIntake;
 import model.FoodItem;
 import model.Portion;
@@ -16,14 +17,14 @@ import static gui.GuiForm.foodItemsSimpleList;
 
 public class Handlers {
 
-    public GuiForm gui;
+    public Forms gui;
     public static final String NO_SELECTION_IN_FOODINTAKE_SECTION = "Не выбран продукт для удаления.";
-    public static final String ADDING_THE_SAME_PRODUCT = "Прием пищи \"%s\" уже содержит продукт \"%s\". " +
+    public static final String ADDING_THE_SAME_PRODUCT = "%s уже содержит продукт \"%s\". " +
             "Чтобы изменить вес порции, необходимо удалить этот продукт из приема пищи и добавить его с новым весом";
     public static final String PLUS = "plus";
     public static final String MINUS = "minus";
 
-    public Handlers(GuiForm gui) {
+    public Handlers(Forms gui) {
         this.gui = gui;
     }
 
@@ -37,69 +38,6 @@ public class Handlers {
         }
         return null;
     }
-
-//    public void calculateBreakfastIndicators(Portion portion, String direction) {
-//        gui.getBreakfastListModel().clear();
-//
-//        Double breakfastProteinCommon = 0d;
-//        Double breakfastCarboCommon = 0d;
-//        Double breakfastFatsCommon = 0d;
-//        Double breakfastCalloriesCommon = 0d;
-//
-//        for (Portion portionInFoodIntake : breakfastObject.getPortions()) {
-//            gui.getBreakfastListModel().addElement(portionInFoodIntake.getFoodItem().getName());
-//            breakfastProteinCommon += portionInFoodIntake.getNutrValue().getProtein();
-//            breakfastCarboCommon += portionInFoodIntake.getNutrValue().getCarbo();
-//            breakfastFatsCommon += portionInFoodIntake.getNutrValue().getFats();
-//            breakfastCalloriesCommon += portionInFoodIntake.getNutrValue().getCallories();
-//        }
-//        gui.getBreakfastJList().setModel(gui.getBreakfastListModel());
-//
-//        gui.getBreakfastProteinsCommon().setText(String.valueOf(breakfastProteinCommon));
-//        gui.getBreakfastCarboCommon().setText(String.valueOf(breakfastCarboCommon));
-//        gui.getBreakfastFatsCommon().setText(String.valueOf(breakfastFatsCommon));
-//        gui.getBreakFastCalloriesCommon().setText(String.valueOf(breakfastCalloriesCommon));
-//
-//        Double proteinSum = (gui.getProteinSum().getText().equals("")) ? 0
-//                : Double.parseDouble(gui.getProteinSum().getText());
-//        Double carboSum = (gui.getCarboSum().getText().equals("")) ? 0
-//                : Double.parseDouble(gui.getCarboSum().getText());
-//        Double fatsSum = (gui.getFatsSum().getText().equals("")) ? 0
-//                : Double.parseDouble(gui.getFatsSum().getText());
-//        Double calloriesSum = (gui.getCalloriesSum().getText().equals("")) ? 0
-//                : Double.parseDouble(gui.getCalloriesSum().getText());
-//
-//        if (direction.equals(PLUS)) {
-//
-//            proteinSum = proteinSum + portion.getFoodItem().getNutrValue().getProtein();
-//            carboSum = carboSum + portion.getFoodItem().getNutrValue().getCarbo();
-//            fatsSum = fatsSum + portion.getFoodItem().getNutrValue().getFats();
-//            calloriesSum = calloriesSum + portion.getFoodItem().getNutrValue().getCallories();
-//
-//            gui.getBreakfastProteinForItem().setText("");
-//            gui.getBreakfastCarboForItem().setText("");
-//            gui.getBreakfastFatsForItem().setText("");
-//            gui.getBreakfastCalloriesForItem().setText("");
-//            gui.getBreakfastWeightForItem().setText("");
-//        } else {
-//            proteinSum = proteinSum - portion.getFoodItem().getNutrValue().getProtein();
-//            carboSum = carboSum - portion.getFoodItem().getNutrValue().getCarbo();
-//            fatsSum = fatsSum - portion.getFoodItem().getNutrValue().getFats();
-//            calloriesSum = calloriesSum - portion.getFoodItem().getNutrValue().getCallories();
-//
-//            gui.getBreakfastProteinForItem().setText("");
-//            gui.getBreakfastCarboForItem().setText("");
-//            gui.getBreakfastFatsForItem().setText("");
-//            gui.getBreakfastCalloriesForItem().setText("");
-//            gui.getBreakfastWeightForItem().setText("");
-//
-//        }
-//
-//        gui.getProteinSum().setText(String.valueOf(round(proteinSum, 2)));
-//        gui.getCarboSum().setText(String.valueOf(round(carboSum, 2 )));
-//        gui.getFatsSum().setText(String.valueOf(round(fatsSum, 2)));
-//        gui.getCalloriesSum().setText(String.valueOf(round(calloriesSum, 2)));
-//    }
 
     public void calculateFoodIntakeIndicators(Portion portion, FoodIntake foodIntakeObject, String direction,
                                               DefaultListModel listModel, JList jList,

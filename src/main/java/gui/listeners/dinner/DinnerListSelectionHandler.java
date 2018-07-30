@@ -2,6 +2,7 @@ package gui.listeners.dinner;
 
 import gui.GuiForm;
 import gui.listeners.Handlers;
+import interfaces.Forms;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -10,7 +11,7 @@ import static gui.GuiForm.dinnerObject;
 
 public class DinnerListSelectionHandler extends Handlers implements ListSelectionListener {
 
-    public DinnerListSelectionHandler(GuiForm gui) {
+    public DinnerListSelectionHandler(Forms gui) {
         super(gui);
     }
 

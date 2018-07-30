@@ -2,6 +2,7 @@ package gui.listeners.secondbreakfast;
 
 import gui.GuiForm;
 import gui.listeners.Handlers;
+import interfaces.Forms;
 import model.FoodIntake;
 import model.FoodItem;
 import model.Portion;
@@ -16,7 +17,7 @@ import static gui.GuiForm.secondBreakfastObject;
 
 public class DeleteFromSecondBreakfastButtonHandler extends Handlers implements ActionListener {
 
-    public DeleteFromSecondBreakfastButtonHandler(GuiForm gui) {
+    public DeleteFromSecondBreakfastButtonHandler(Forms gui) {
         super(gui);
     }
 

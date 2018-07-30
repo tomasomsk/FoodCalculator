@@ -2,6 +2,7 @@ package gui.listeners.lunch;
 
 import gui.GuiForm;
 import gui.listeners.Handlers;
+import interfaces.Forms;
 import model.FoodItem;
 import model.Portion;
 
@@ -16,7 +17,7 @@ import static gui.GuiForm.foodItemsSimpleList;
 
 public class InLunchButtonHandler extends Handlers implements ActionListener {
 
-    public InLunchButtonHandler(GuiForm gui) {
+    public InLunchButtonHandler(Forms gui) {
         super(gui);
     }
 
