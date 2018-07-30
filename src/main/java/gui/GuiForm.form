@@ -273,36 +273,36 @@
                   <text value="В завтрак"/>
                 </properties>
               </component>
-              <component id="9256d" class="javax.swing.JButton" binding="inLunchButton" default-binding="true">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="В обед"/>
-                </properties>
-              </component>
-              <component id="474a0" class="javax.swing.JButton" binding="inSecondBreakfastButton" default-binding="true">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Во второй завтрак"/>
-                </properties>
-              </component>
-              <component id="549ee" class="javax.swing.JButton" binding="inDinnerButton" default-binding="true">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="В ужин"/>
-                </properties>
-              </component>
               <component id="6e24e" class="javax.swing.JButton" binding="inSecondDinnerButton" default-binding="true">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Во второй ужин"/>
+                </properties>
+              </component>
+              <component id="9f81f" class="javax.swing.JButton" binding="inSecondBreakfastButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Во второй завтрак"/>
+                </properties>
+              </component>
+              <component id="a9fcb" class="javax.swing.JButton" binding="inDinnerButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="В ужин"/>
+                </properties>
+              </component>
+              <component id="1af27" class="javax.swing.JButton" binding="inLunchButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="В обед"/>
                 </properties>
               </component>
             </children>

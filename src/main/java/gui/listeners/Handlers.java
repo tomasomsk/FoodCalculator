@@ -68,10 +68,10 @@ public class Handlers {
         }
         // Устснавливает значения в поля формы конкретного приема пищи
         jList.setModel(listModel);
-        proteinsCommon.setText(String.valueOf(proteinCommonForCalculate));
-        carboCommon.setText(String.valueOf(carboCommonForCalculate));
-        fatsCommon.setText(String.valueOf(fatsCommonForCalculate));
-        calloriesCommon.setText(String.valueOf(calloriesCommonForCalculate));
+        proteinsCommon.setText(String.valueOf(round(proteinCommonForCalculate, 2)));
+        carboCommon.setText(String.valueOf(round(carboCommonForCalculate, 2)));
+        fatsCommon.setText(String.valueOf(round(fatsCommonForCalculate, 2)));
+        calloriesCommon.setText(String.valueOf(round(calloriesCommonForCalculate,2)));
 
         // Берет общую пищевую ценность у конкретного приема пищи
         Double proteinSum = (gui.getProteinSum().getText().equals("")) ? 0
