@@ -1,4 +1,4 @@
-package importfromoutside;
+package excel;
 
 import apiobjectswithname.ObjectsWithNameList;
 import model.FoodItem;
@@ -9,7 +9,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import properties.Props;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +21,7 @@ import static properties.Props.getProperty;
 /**
  * Импорт продуктов питания из файла Excel
  */
-public class ImportFromExcel {
+public class ExcelHelper {
 
     public static ObjectsWithNameList<FoodItem> importFoodItems() {
         ObjectsWithNameList<FoodItem> result = new ObjectsWithNameList<>(new ArrayList<>());
@@ -46,6 +45,8 @@ public class ImportFromExcel {
         }
         return result;
     }
+
+
 
     private static XSSFSheet getSheetFromFile(String fileName, int sheetNum) {
         FileInputStream fis = null;

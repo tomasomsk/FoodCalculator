@@ -16,7 +16,7 @@ import gui.listeners.seconddinner.DeleteFromSecondDinnerButtonHandler;
 import gui.listeners.seconddinner.InSecondDinnerButtonHandler;
 import gui.listeners.seconddinner.SecondDinnerListSelectionHandler;
 import static gui.GuiForm.foodItemsSimpleList;
-import static importfromoutside.ImportFromExcel.importFoodItems;
+import static excel.ExcelHelper.importFoodItems;
 
 public class Starter {
 
