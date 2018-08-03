@@ -13,8 +13,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 import static properties.Props.getProperty;
 
@@ -49,11 +51,11 @@ public class ExcelHelper {
 
 
     private static XSSFSheet getSheetFromFile(String fileName, int sheetNum) {
-        FileInputStream fis = null;
+        InputStream fis = null;
         try {
-            File file = new File(fileName);
+            ClassLoader classLoader = ExcelHelper.class.getClassLoader();
             //Create excel book from file
-            fis = new FileInputStream(file);
+            fis = classLoader.getResourceAsStream(fileName);
             XSSFWorkbook book = new XSSFWorkbook(fis);
             //Create excel sheet
             return book.getSheetAt(sheetNum);

@@ -1,6 +1,5 @@
 package gui.listeners;
 
-import gui.GuiForm;
 import interfaces.Forms;
 import model.FoodIntake;
 import model.FoodItem;
@@ -8,12 +7,10 @@ import model.Portion;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
-
 import java.util.stream.Collectors;
 
+import static applaunch.Starter.foodItemsSimpleList;
 import static common.CommonMethods.round;
-import static gui.GuiForm.breakfastObject;
-import static gui.GuiForm.foodItemsSimpleList;
 
 public class Handlers {
 

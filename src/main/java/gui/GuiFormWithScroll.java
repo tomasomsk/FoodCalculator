@@ -1,6 +1,7 @@
 package gui;
 
 import apiobjectswithname.ObjectsWithNameList;
+import applaunch.Starter;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -13,13 +14,11 @@ import java.awt.*;
 
 import static applaunch.Starter.foodItemsSimpleList;
 
-public class GuiForm extends JFrame implements Forms {
-
+public class GuiFormWithScroll extends JFrame implements Forms {
     private JPanel mainPanel;
 
     private JList foodItemsJList;
     private DefaultListModel foodItemsJListModel = new DefaultListModel();
-//    public static ObjectsWithNameList<FoodItem> foodItemsSimpleList;
     private JTextField proteinsOn100g;
     private JTextField carboOn100g;
     private JTextField fatsOn100g;
@@ -108,8 +107,10 @@ public class GuiForm extends JFrame implements Forms {
     private JTextField fatsSum;
     private JTextField calloriesSum;
 
-    public GuiForm() {
-        setContentPane(mainPanel);
+    private JPanel rootPanel;
+
+    public GuiFormWithScroll() {
+        setContentPane(rootPanel);
         setExtendedState(MAXIMIZED_BOTH);
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -122,10 +123,6 @@ public class GuiForm extends JFrame implements Forms {
         foodItemsJList.setModel(foodItemsJListModel);
     }
 
-
-
-    public static final String FOOD_ITEMS_FORMAT = "     (Белки:   %s     |     Углеводы:   %s,     |     Жиры:   %s     |     Каллории:   %s)";
-
     public JPanel getMainPanel() {
         return mainPanel;
     }
@@ -134,221 +131,92 @@ public class GuiForm extends JFrame implements Forms {
         this.mainPanel = mainPanel;
     }
 
-
-    public JTextField getLunchProteinsCommon() {
-        return lunchProteinsCommon;
+    public JList getFoodItemsJList() {
+        return foodItemsJList;
     }
 
-    public void setLunchProteinsCommon(JTextField lunchProteinsCommon) {
-        this.lunchProteinsCommon = lunchProteinsCommon;
+    public void setFoodItemsJList(JList foodItemsJList) {
+        this.foodItemsJList = foodItemsJList;
     }
 
-    public JTextField getLunchCarboCommon() {
-        return lunchCarboCommon;
+    public DefaultListModel getFoodItemsJListModel() {
+        return foodItemsJListModel;
     }
 
-    public void setLunchCarboCommon(JTextField lunchCarboCommon) {
-        this.lunchCarboCommon = lunchCarboCommon;
+    public void setFoodItemsJListModel(DefaultListModel foodItemsJListModel) {
+        this.foodItemsJListModel = foodItemsJListModel;
     }
 
-    public JTextField getLunchFatsCommon() {
-        return lunchFatsCommon;
+    public static ObjectsWithNameList<FoodItem> getFoodItemsSimpleList() {
+        return foodItemsSimpleList;
     }
 
-    public void setLunchFatsCommon(JTextField lunchFatsCommon) {
-        this.lunchFatsCommon = lunchFatsCommon;
+    public static void setFoodItemsSimpleList(ObjectsWithNameList<FoodItem> foodItemsSimpleList) {
+        foodItemsSimpleList = foodItemsSimpleList;
     }
 
-    public JTextField getLunchCalloriesCommon() {
-        return lunchCalloriesCommon;
+    public JTextField getProteinsOn100g() {
+        return proteinsOn100g;
     }
 
-    public JTextField getSecondDinnerProteinsCommon() {
-        return secondDinnerProteinsCommon;
+    public void setProteinsOn100g(JTextField proteinsOn100g) {
+        this.proteinsOn100g = proteinsOn100g;
     }
 
-    public void setSecondDinnerProteinsCommon(JTextField secondDinnerProteinsCommon) {
-        this.secondDinnerProteinsCommon = secondDinnerProteinsCommon;
+    public JTextField getCarboOn100g() {
+        return carboOn100g;
     }
 
-    public JTextField getSecondDinnerCarboCommon() {
-        return secondDinnerCarboCommon;
+    public void setCarboOn100g(JTextField carboOn100g) {
+        this.carboOn100g = carboOn100g;
     }
 
-    public void setSecondDinnerCarboCommon(JTextField secondDinnerCarboCommon) {
-        this.secondDinnerCarboCommon = secondDinnerCarboCommon;
+    public JTextField getFatsOn100g() {
+        return fatsOn100g;
     }
 
-    public JTextField getSecondDinnerFatsCommon() {
-        return secondDinnerFatsCommon;
+    public void setFatsOn100g(JTextField fatsOn100g) {
+        this.fatsOn100g = fatsOn100g;
     }
 
-    public void setSecondDinnerFatsCommon(JTextField secondDinnerFatsCommon) {
-        this.secondDinnerFatsCommon = secondDinnerFatsCommon;
+    public JTextField getCalloriesOn100g() {
+        return calloriesOn100g;
     }
 
-    public JTextField getSecondDinnerCalloriesCommon() {
-        return secondDinnerCalloriesCommon;
+    public void setCalloriesOn100g(JTextField calloriesOn100g) {
+        this.calloriesOn100g = calloriesOn100g;
     }
 
-    public void setSecondDinnerCalloriesCommon(JTextField secondDinnerCalloriesCommon) {
-        this.secondDinnerCalloriesCommon = secondDinnerCalloriesCommon;
+    public JTextField getPortionWeight() {
+        return portionWeight;
     }
 
-    public JTextField getSecondDinnerWeightForItem() {
-        return secondDinnerWeightForItem;
+    public void setPortionWeight(JTextField portionWeight) {
+        this.portionWeight = portionWeight;
     }
 
-    public void setSecondDinnerWeightForItem(JTextField secondDinnerWeightForItem) {
-        this.secondDinnerWeightForItem = secondDinnerWeightForItem;
+    public JList getBreakfastJList() {
+        return breakfastJList;
     }
 
-    public JTextField getSecondDinnerProteinForItem() {
-        return secondDinnerProteinForItem;
+    public void setBreakfastJList(JList breakfastJList) {
+        this.breakfastJList = breakfastJList;
     }
 
-    public void setSecondDinnerProteinForItem(JTextField secondDinnerProteinForItem) {
-        this.secondDinnerProteinForItem = secondDinnerProteinForItem;
+    public DefaultListModel getBreakfastListModel() {
+        return breakfastListModel;
     }
 
-    public JTextField getSecondDinnerCarboForItem() {
-        return secondDinnerCarboForItem;
+    public void setBreakfastListModel(DefaultListModel breakfastListModel) {
+        this.breakfastListModel = breakfastListModel;
     }
 
-    public void setSecondDinnerCarboForItem(JTextField secondDinnerCarboForItem) {
-        this.secondDinnerCarboForItem = secondDinnerCarboForItem;
+    public static FoodIntake getBreakfastObject() {
+        return breakfastObject;
     }
 
-    public JTextField getSecondDinnerFatsForItem() {
-        return secondDinnerFatsForItem;
-    }
-
-    public void setSecondDinnerFatsForItem(JTextField secondDinnerFatsForItem) {
-        this.secondDinnerFatsForItem = secondDinnerFatsForItem;
-    }
-
-    public JTextField getSecondDinnerCalloriesForItem() {
-        return secondDinnerCalloriesForItem;
-    }
-
-    public void setSecondDinnerCalloriesForItem(JTextField secondDinnerCalloriesForItem) {
-        this.secondDinnerCalloriesForItem = secondDinnerCalloriesForItem;
-    }
-
-    public JTextField getDinnerProteinsCommon() {
-        return dinnerProteinsCommon;
-    }
-
-    public void setDinnerProteinsCommon(JTextField dinnerProteinsCommon) {
-        this.dinnerProteinsCommon = dinnerProteinsCommon;
-    }
-
-    public JTextField getDinnerCarboCommon() {
-        return dinnerCarboCommon;
-    }
-
-    public void setDinnerCarboCommon(JTextField dinnerCarboCommon) {
-        this.dinnerCarboCommon = dinnerCarboCommon;
-    }
-
-    public JTextField getDinnerFatsCommon() {
-        return dinnerFatsCommon;
-    }
-
-    public void setDinnerFatsCommon(JTextField dinnerFatsCommon) {
-        this.dinnerFatsCommon = dinnerFatsCommon;
-    }
-
-    public JTextField getDinnerCalloriesCommon() {
-        return dinnerCalloriesCommon;
-    }
-
-    public void setDinnerCalloriesCommon(JTextField dinnerCalloriesCommon) {
-        this.dinnerCalloriesCommon = dinnerCalloriesCommon;
-    }
-
-    public JTextField getDinnerWeightForItem() {
-        return dinnerWeightForItem;
-    }
-
-    public void setDinnerWeightForItem(JTextField dinnerWeightForItem) {
-        this.dinnerWeightForItem = dinnerWeightForItem;
-    }
-
-    public JTextField getDinnerProteinForItem() {
-        return dinnerProteinForItem;
-    }
-
-    public void setDinnerProteinForItem(JTextField dinnerProteinForItem) {
-        this.dinnerProteinForItem = dinnerProteinForItem;
-    }
-
-    public JTextField getDinnerCarboForItem() {
-        return dinnerCarboForItem;
-    }
-
-    public void setDinnerCarboForItem(JTextField dinnerCarboForItem) {
-        this.dinnerCarboForItem = dinnerCarboForItem;
-    }
-
-    public JTextField getDinnerFatsForItem() {
-        return dinnerFatsForItem;
-    }
-
-    public void setDinnerFatsForItem(JTextField dinnerFatsForItem) {
-        this.dinnerFatsForItem = dinnerFatsForItem;
-    }
-
-    public JTextField getDinnerCalloriesForItem() {
-        return dinnerCalloriesForItem;
-    }
-
-    public void setDinnerCalloriesForItem(JTextField dinnerCalloriesForItem) {
-        this.dinnerCalloriesForItem = dinnerCalloriesForItem;
-    }
-
-    public void setLunchCalloriesCommon(JTextField lunchCalloriesCommon) {
-        this.lunchCalloriesCommon = lunchCalloriesCommon;
-    }
-
-    public JTextField getLunchWeightForItem() {
-        return lunchWeightForItem;
-    }
-
-    public void setLunchWeightForItem(JTextField lunchWeightForItem) {
-        this.lunchWeightForItem = lunchWeightForItem;
-    }
-
-    public JTextField getLunchProteinForItem() {
-        return lunchProteinForItem;
-    }
-
-    public void setLunchProteinForItem(JTextField lunchProteinForItem) {
-        this.lunchProteinForItem = lunchProteinForItem;
-    }
-
-    public JTextField getLunchCarboForItem() {
-        return lunchCarboForItem;
-    }
-
-    public void setLunchCarboForItem(JTextField lunchCarboForItem) {
-        this.lunchCarboForItem = lunchCarboForItem;
-    }
-
-    public JTextField getLunchFatsForItem() {
-        return lunchFatsForItem;
-    }
-
-    public void setLunchFatsForItem(JTextField lunchFatsForItem) {
-        this.lunchFatsForItem = lunchFatsForItem;
-    }
-
-    public JTextField getLunchCalloriesForItem() {
-        return lunchCalloriesForItem;
-    }
-
-    public void setLunchCalloriesForItem(JTextField lunchCalloriesForItem) {
-        this.lunchCalloriesForItem = lunchCalloriesForItem;
+    public static void setBreakfastObject(FoodIntake breakfastObject) {
+        GuiFormWithScroll.breakfastObject = breakfastObject;
     }
 
     public JButton getInBreakfastButton() {
@@ -359,6 +227,46 @@ public class GuiForm extends JFrame implements Forms {
         this.inBreakfastButton = inBreakfastButton;
     }
 
+    public JButton getDeleteFromBreakfastButton() {
+        return deleteFromBreakfastButton;
+    }
+
+    public void setDeleteFromBreakfastButton(JButton deleteFromBreakfastButton) {
+        this.deleteFromBreakfastButton = deleteFromBreakfastButton;
+    }
+
+    public JTextField getBreakfastProteinsCommon() {
+        return breakfastProteinsCommon;
+    }
+
+    public void setBreakfastProteinsCommon(JTextField breakfastProteinsCommon) {
+        this.breakfastProteinsCommon = breakfastProteinsCommon;
+    }
+
+    public JTextField getBreakfastCarboCommon() {
+        return breakfastCarboCommon;
+    }
+
+    public void setBreakfastCarboCommon(JTextField breakfastCarboCommon) {
+        this.breakfastCarboCommon = breakfastCarboCommon;
+    }
+
+    public JTextField getBreakfastFatsCommon() {
+        return breakfastFatsCommon;
+    }
+
+    public void setBreakfastFatsCommon(JTextField breakfastFatsCommon) {
+        this.breakfastFatsCommon = breakfastFatsCommon;
+    }
+
+    public JTextField getBreakFastCalloriesCommon() {
+        return breakFastCalloriesCommon;
+    }
+
+    public void setBreakFastCalloriesCommon(JTextField breakFastCalloriesCommon) {
+        this.breakFastCalloriesCommon = breakFastCalloriesCommon;
+    }
+
     public JTextField getBreakfastWeightForItem() {
         return breakfastWeightForItem;
     }
@@ -367,12 +275,60 @@ public class GuiForm extends JFrame implements Forms {
         this.breakfastWeightForItem = breakfastWeightForItem;
     }
 
-    public JButton getInLunchButton() {
-        return inLunchButton;
+    public JTextField getBreakfastProteinForItem() {
+        return breakfastProteinForItem;
     }
 
-    public void setInLunchButton(JButton inLunchButton) {
-        this.inLunchButton = inLunchButton;
+    public void setBreakfastProteinForItem(JTextField breakfastProteinForItem) {
+        this.breakfastProteinForItem = breakfastProteinForItem;
+    }
+
+    public JTextField getBreakfastCarboForItem() {
+        return breakfastCarboForItem;
+    }
+
+    public void setBreakfastCarboForItem(JTextField breakfastCarboForItem) {
+        this.breakfastCarboForItem = breakfastCarboForItem;
+    }
+
+    public JTextField getBreakfastFatsForItem() {
+        return breakfastFatsForItem;
+    }
+
+    public void setBreakfastFatsForItem(JTextField breakfastFatsForItem) {
+        this.breakfastFatsForItem = breakfastFatsForItem;
+    }
+
+    public JTextField getBreakfastCalloriesForItem() {
+        return breakfastCalloriesForItem;
+    }
+
+    public void setBreakfastCalloriesForItem(JTextField breakfastCalloriesForItem) {
+        this.breakfastCalloriesForItem = breakfastCalloriesForItem;
+    }
+
+    public JList getSecondBreakfastJList() {
+        return secondBreakfastJList;
+    }
+
+    public void setSecondBreakfastJList(JList secondBreakfastJList) {
+        this.secondBreakfastJList = secondBreakfastJList;
+    }
+
+    public DefaultListModel getSecondBreakfastListModel() {
+        return secondBreakfastListModel;
+    }
+
+    public void setSecondBreakfastListModel(DefaultListModel secondBreakfastListModel) {
+        this.secondBreakfastListModel = secondBreakfastListModel;
+    }
+
+    public static FoodIntake getSecondBreakfastObject() {
+        return secondBreakfastObject;
+    }
+
+    public static void setSecondBreakfastObject(FoodIntake secondBreakfastObject) {
+        GuiFormWithScroll.secondBreakfastObject = secondBreakfastObject;
     }
 
     public JButton getInSecondBreakfastButton() {
@@ -383,16 +339,12 @@ public class GuiForm extends JFrame implements Forms {
         this.inSecondBreakfastButton = inSecondBreakfastButton;
     }
 
-    public JButton getInDinnerButton() {
-        return inDinnerButton;
+    public JButton getDeleteFromSecondBreakfastButton() {
+        return deleteFromSecondBreakfastButton;
     }
 
-    public void setInDinnerButton(JButton inDinnerButton) {
-        this.inDinnerButton = inDinnerButton;
-    }
-
-    public JButton getInSecondDinnerButton() {
-        return inSecondDinnerButton;
+    public void setDeleteFromSecondBreakfastButton(JButton deleteFromSecondBreakfastButton) {
+        this.deleteFromSecondBreakfastButton = deleteFromSecondBreakfastButton;
     }
 
     public JTextField getSecondBreakfastProteinsCommon() {
@@ -467,180 +419,12 @@ public class GuiForm extends JFrame implements Forms {
         this.secondBreakfastCalloriesForItem = secondBreakfastCalloriesForItem;
     }
 
-    public void setInSecondDinnerButton(JButton inSecondDinnerButton) {
-        this.inSecondDinnerButton = inSecondDinnerButton;
+    public JList getLunchJList() {
+        return lunchJList;
     }
 
-    public JButton getDeleteFromBreakfastButton() {
-        return deleteFromBreakfastButton;
-    }
-
-    public void setDeleteFromBreakfastButton(JButton deleteFromBreakfastButton) {
-        this.deleteFromBreakfastButton = deleteFromBreakfastButton;
-    }
-
-    public JButton getDeleteFromLunchButton() {
-        return deleteFromLunchButton;
-    }
-
-    public JTextField getProteinsOn100g() {
-        return proteinsOn100g;
-    }
-
-    public JTextField getPortionWeight() {
-        return portionWeight;
-    }
-
-    public JTextField getBreakfastProteinsCommon() {
-        return breakfastProteinsCommon;
-    }
-
-    public void setBreakfastProteinsCommon(JTextField breakfastProteinsCommon) {
-        this.breakfastProteinsCommon = breakfastProteinsCommon;
-    }
-
-    public JTextField getBreakfastCarboCommon() {
-        return breakfastCarboCommon;
-    }
-
-    public void setBreakfastCarboCommon(JTextField breakfastCarboCommon) {
-        this.breakfastCarboCommon = breakfastCarboCommon;
-    }
-
-    public JTextField getBreakfastFatsCommon() {
-        return breakfastFatsCommon;
-    }
-
-    public void setBreakfastFatsCommon(JTextField breakfastFatsCommon) {
-        this.breakfastFatsCommon = breakfastFatsCommon;
-    }
-
-    public JTextField getBreakFastCalloriesCommon() {
-        return breakFastCalloriesCommon;
-    }
-
-    public void setBreakFastCalloriesCommon(JTextField breakFastCalloriesCommon) {
-        this.breakFastCalloriesCommon = breakFastCalloriesCommon;
-    }
-
-    public void setPortionWeight(JTextField portionWeight) {
-        this.portionWeight = portionWeight;
-    }
-
-    public void setProteinsOn100g(JTextField proteinsOn100g) {
-        this.proteinsOn100g = proteinsOn100g;
-    }
-
-    public JTextField getCarboOn100g() {
-        return carboOn100g;
-    }
-
-    public void setCarboOn100g(JTextField carboOn100g) {
-        this.carboOn100g = carboOn100g;
-    }
-
-    public JTextField getFatsOn100g() {
-        return fatsOn100g;
-    }
-
-    public void setFatsOn100g(JTextField fatsOn100g) {
-        this.fatsOn100g = fatsOn100g;
-    }
-
-    public JTextField getCalloriesOn100g() {
-        return calloriesOn100g;
-    }
-
-    public void setCalloriesOn100g(JTextField calloriesOn100g) {
-        this.calloriesOn100g = calloriesOn100g;
-    }
-
-    public void setDeleteFromLunchButton(JButton deleteFromLunchButton) {
-        this.deleteFromLunchButton = deleteFromLunchButton;
-    }
-
-    public JButton getDeleteFromSecondBreakfastButton() {
-        return deleteFromSecondBreakfastButton;
-    }
-
-    public void setDeleteFromSecondBreakfastButton(JButton deleteFromSecondBreakfastButton) {
-        this.deleteFromSecondBreakfastButton = deleteFromSecondBreakfastButton;
-    }
-
-    public JButton getDeleteFromDinnerButton() {
-        return deleteFromDinnerButton;
-    }
-
-    public void setDeleteFromDinnerButton(JButton deleteFromDinnerButton) {
-        this.deleteFromDinnerButton = deleteFromDinnerButton;
-    }
-
-    public JButton getDeleteFromSecondDinnerButton() {
-        return deleteFromSecondDinnerButton;
-    }
-
-    public DefaultListModel getBreakfastListModel() {
-        return breakfastListModel;
-    }
-
-    public JTextField getBreakfastProteinForItem() {
-        return breakfastProteinForItem;
-    }
-
-    public void setBreakfastProteinForItem(JTextField breakfastProteinForItem) {
-        this.breakfastProteinForItem = breakfastProteinForItem;
-    }
-
-    public JTextField getBreakfastFatsForItem() {
-        return breakfastFatsForItem;
-    }
-
-    public void setBreakfastFatsForItem(JTextField breakfastFatsForItem) {
-        this.breakfastFatsForItem = breakfastFatsForItem;
-    }
-
-    public JTextField getBreakfastCalloriesForItem() {
-        return breakfastCalloriesForItem;
-    }
-
-    public void setBreakfastCalloriesForItem(JTextField breakfastCalloriesForItem) {
-        this.breakfastCalloriesForItem = breakfastCalloriesForItem;
-    }
-
-    public JTextField getBreakfastCarboForItem() {
-        return breakfastCarboForItem;
-    }
-
-    public void setBreakfastCarboForItem(JTextField breakfastCarboForItem) {
-        this.breakfastCarboForItem = breakfastCarboForItem;
-    }
-
-    public void setBreakfastListModel(DefaultListModel breakfastListModel) {
-        this.breakfastListModel = breakfastListModel;
-    }
-
-    public static FoodIntake getBreakfastObject() {
-        return breakfastObject;
-    }
-
-    public static void setBreakfastObject(FoodIntake breakfastObject) {
-        GuiForm.breakfastObject = breakfastObject;
-    }
-
-    public DefaultListModel getSecondBreakfastListModel() {
-        return secondBreakfastListModel;
-    }
-
-    public void setSecondBreakfastListModel(DefaultListModel secondBreakfastListModel) {
-        this.secondBreakfastListModel = secondBreakfastListModel;
-    }
-
-    public static FoodIntake getSecondBreakfastObject() {
-        return secondBreakfastObject;
-    }
-
-    public static void setSecondBreakfastObject(FoodIntake secondBreakfastObject) {
-        GuiForm.secondBreakfastObject = secondBreakfastObject;
+    public void setLunchJList(JList lunchJList) {
+        this.lunchJList = lunchJList;
     }
 
     public DefaultListModel getLunchListModel() {
@@ -656,7 +440,103 @@ public class GuiForm extends JFrame implements Forms {
     }
 
     public static void setLunchObject(FoodIntake lunchObject) {
-        GuiForm.lunchObject = lunchObject;
+        GuiFormWithScroll.lunchObject = lunchObject;
+    }
+
+    public JButton getInLunchButton() {
+        return inLunchButton;
+    }
+
+    public void setInLunchButton(JButton inLunchButton) {
+        this.inLunchButton = inLunchButton;
+    }
+
+    public JButton getDeleteFromLunchButton() {
+        return deleteFromLunchButton;
+    }
+
+    public void setDeleteFromLunchButton(JButton deleteFromLunchButton) {
+        this.deleteFromLunchButton = deleteFromLunchButton;
+    }
+
+    public JTextField getLunchProteinsCommon() {
+        return lunchProteinsCommon;
+    }
+
+    public void setLunchProteinsCommon(JTextField lunchProteinsCommon) {
+        this.lunchProteinsCommon = lunchProteinsCommon;
+    }
+
+    public JTextField getLunchCarboCommon() {
+        return lunchCarboCommon;
+    }
+
+    public void setLunchCarboCommon(JTextField lunchCarboCommon) {
+        this.lunchCarboCommon = lunchCarboCommon;
+    }
+
+    public JTextField getLunchFatsCommon() {
+        return lunchFatsCommon;
+    }
+
+    public void setLunchFatsCommon(JTextField lunchFatsCommon) {
+        this.lunchFatsCommon = lunchFatsCommon;
+    }
+
+    public JTextField getLunchCalloriesCommon() {
+        return lunchCalloriesCommon;
+    }
+
+    public void setLunchCalloriesCommon(JTextField lunchCalloriesCommon) {
+        this.lunchCalloriesCommon = lunchCalloriesCommon;
+    }
+
+    public JTextField getLunchWeightForItem() {
+        return lunchWeightForItem;
+    }
+
+    public void setLunchWeightForItem(JTextField lunchWeightForItem) {
+        this.lunchWeightForItem = lunchWeightForItem;
+    }
+
+    public JTextField getLunchProteinForItem() {
+        return lunchProteinForItem;
+    }
+
+    public void setLunchProteinForItem(JTextField lunchProteinForItem) {
+        this.lunchProteinForItem = lunchProteinForItem;
+    }
+
+    public JTextField getLunchCarboForItem() {
+        return lunchCarboForItem;
+    }
+
+    public void setLunchCarboForItem(JTextField lunchCarboForItem) {
+        this.lunchCarboForItem = lunchCarboForItem;
+    }
+
+    public JTextField getLunchFatsForItem() {
+        return lunchFatsForItem;
+    }
+
+    public void setLunchFatsForItem(JTextField lunchFatsForItem) {
+        this.lunchFatsForItem = lunchFatsForItem;
+    }
+
+    public JTextField getLunchCalloriesForItem() {
+        return lunchCalloriesForItem;
+    }
+
+    public void setLunchCalloriesForItem(JTextField lunchCalloriesForItem) {
+        this.lunchCalloriesForItem = lunchCalloriesForItem;
+    }
+
+    public JList getDinnerJList() {
+        return dinnerJList;
+    }
+
+    public void setDinnerJList(JList dinnerJList) {
+        this.dinnerJList = dinnerJList;
     }
 
     public DefaultListModel getDinnerListModel() {
@@ -672,7 +552,103 @@ public class GuiForm extends JFrame implements Forms {
     }
 
     public static void setDinnerObject(FoodIntake dinnerObject) {
-        GuiForm.dinnerObject = dinnerObject;
+        GuiFormWithScroll.dinnerObject = dinnerObject;
+    }
+
+    public JButton getInDinnerButton() {
+        return inDinnerButton;
+    }
+
+    public void setInDinnerButton(JButton inDinnerButton) {
+        this.inDinnerButton = inDinnerButton;
+    }
+
+    public JButton getDeleteFromDinnerButton() {
+        return deleteFromDinnerButton;
+    }
+
+    public void setDeleteFromDinnerButton(JButton deleteFromDinnerButton) {
+        this.deleteFromDinnerButton = deleteFromDinnerButton;
+    }
+
+    public JTextField getDinnerProteinsCommon() {
+        return dinnerProteinsCommon;
+    }
+
+    public void setDinnerProteinsCommon(JTextField dinnerProteinsCommon) {
+        this.dinnerProteinsCommon = dinnerProteinsCommon;
+    }
+
+    public JTextField getDinnerCarboCommon() {
+        return dinnerCarboCommon;
+    }
+
+    public void setDinnerCarboCommon(JTextField dinnerCarboCommon) {
+        this.dinnerCarboCommon = dinnerCarboCommon;
+    }
+
+    public JTextField getDinnerFatsCommon() {
+        return dinnerFatsCommon;
+    }
+
+    public void setDinnerFatsCommon(JTextField dinnerFatsCommon) {
+        this.dinnerFatsCommon = dinnerFatsCommon;
+    }
+
+    public JTextField getDinnerCalloriesCommon() {
+        return dinnerCalloriesCommon;
+    }
+
+    public void setDinnerCalloriesCommon(JTextField dinnerCalloriesCommon) {
+        this.dinnerCalloriesCommon = dinnerCalloriesCommon;
+    }
+
+    public JTextField getDinnerWeightForItem() {
+        return dinnerWeightForItem;
+    }
+
+    public void setDinnerWeightForItem(JTextField dinnerWeightForItem) {
+        this.dinnerWeightForItem = dinnerWeightForItem;
+    }
+
+    public JTextField getDinnerProteinForItem() {
+        return dinnerProteinForItem;
+    }
+
+    public void setDinnerProteinForItem(JTextField dinnerProteinForItem) {
+        this.dinnerProteinForItem = dinnerProteinForItem;
+    }
+
+    public JTextField getDinnerCarboForItem() {
+        return dinnerCarboForItem;
+    }
+
+    public void setDinnerCarboForItem(JTextField dinnerCarboForItem) {
+        this.dinnerCarboForItem = dinnerCarboForItem;
+    }
+
+    public JTextField getDinnerFatsForItem() {
+        return dinnerFatsForItem;
+    }
+
+    public void setDinnerFatsForItem(JTextField dinnerFatsForItem) {
+        this.dinnerFatsForItem = dinnerFatsForItem;
+    }
+
+    public JTextField getDinnerCalloriesForItem() {
+        return dinnerCalloriesForItem;
+    }
+
+    public void setDinnerCalloriesForItem(JTextField dinnerCalloriesForItem) {
+        this.dinnerCalloriesForItem = dinnerCalloriesForItem;
+    }
+
+    public JList getSecondDinnerJList() {
+        return secondDinnerJList;
+    }
+
+    public void setSecondDinnerJList(JList secondDinnerJList) {
+        this.secondDinnerJList = secondDinnerJList;
     }
 
     public DefaultListModel getSecondDinnerListModel() {
@@ -688,15 +664,95 @@ public class GuiForm extends JFrame implements Forms {
     }
 
     public static void setSecondDinnerObject(FoodIntake secondDinnerObject) {
-        GuiForm.secondDinnerObject = secondDinnerObject;
+        GuiFormWithScroll.secondDinnerObject = secondDinnerObject;
+    }
+
+    public JButton getInSecondDinnerButton() {
+        return inSecondDinnerButton;
+    }
+
+    public void setInSecondDinnerButton(JButton inSecondDinnerButton) {
+        this.inSecondDinnerButton = inSecondDinnerButton;
+    }
+
+    public JButton getDeleteFromSecondDinnerButton() {
+        return deleteFromSecondDinnerButton;
     }
 
     public void setDeleteFromSecondDinnerButton(JButton deleteFromSecondDinnerButton) {
         this.deleteFromSecondDinnerButton = deleteFromSecondDinnerButton;
     }
 
-    public JList getFoodItemsJList() {
-        return foodItemsJList;
+    public JTextField getSecondDinnerProteinsCommon() {
+        return secondDinnerProteinsCommon;
+    }
+
+    public void setSecondDinnerProteinsCommon(JTextField secondDinnerProteinsCommon) {
+        this.secondDinnerProteinsCommon = secondDinnerProteinsCommon;
+    }
+
+    public JTextField getSecondDinnerCarboCommon() {
+        return secondDinnerCarboCommon;
+    }
+
+    public void setSecondDinnerCarboCommon(JTextField secondDinnerCarboCommon) {
+        this.secondDinnerCarboCommon = secondDinnerCarboCommon;
+    }
+
+    public JTextField getSecondDinnerFatsCommon() {
+        return secondDinnerFatsCommon;
+    }
+
+    public void setSecondDinnerFatsCommon(JTextField secondDinnerFatsCommon) {
+        this.secondDinnerFatsCommon = secondDinnerFatsCommon;
+    }
+
+    public JTextField getSecondDinnerCalloriesCommon() {
+        return secondDinnerCalloriesCommon;
+    }
+
+    public void setSecondDinnerCalloriesCommon(JTextField secondDinnerCalloriesCommon) {
+        this.secondDinnerCalloriesCommon = secondDinnerCalloriesCommon;
+    }
+
+    public JTextField getSecondDinnerWeightForItem() {
+        return secondDinnerWeightForItem;
+    }
+
+    public void setSecondDinnerWeightForItem(JTextField secondDinnerWeightForItem) {
+        this.secondDinnerWeightForItem = secondDinnerWeightForItem;
+    }
+
+    public JTextField getSecondDinnerProteinForItem() {
+        return secondDinnerProteinForItem;
+    }
+
+    public void setSecondDinnerProteinForItem(JTextField secondDinnerProteinForItem) {
+        this.secondDinnerProteinForItem = secondDinnerProteinForItem;
+    }
+
+    public JTextField getSecondDinnerCarboForItem() {
+        return secondDinnerCarboForItem;
+    }
+
+    public void setSecondDinnerCarboForItem(JTextField secondDinnerCarboForItem) {
+        this.secondDinnerCarboForItem = secondDinnerCarboForItem;
+    }
+
+    public JTextField getSecondDinnerFatsForItem() {
+        return secondDinnerFatsForItem;
+    }
+
+    public void setSecondDinnerFatsForItem(JTextField secondDinnerFatsForItem) {
+        this.secondDinnerFatsForItem = secondDinnerFatsForItem;
+    }
+
+    public JTextField getSecondDinnerCalloriesForItem() {
+        return secondDinnerCalloriesForItem;
+    }
+
+    public void setSecondDinnerCalloriesForItem(JTextField secondDinnerCalloriesForItem) {
+        this.secondDinnerCalloriesForItem = secondDinnerCalloriesForItem;
     }
 
     public JTextField getProteinSum() {
@@ -731,68 +787,12 @@ public class GuiForm extends JFrame implements Forms {
         this.calloriesSum = calloriesSum;
     }
 
-    public void setFoodItemsJList(JList foodItemsJList) {
-        this.foodItemsJList = foodItemsJList;
+    public JPanel getRootPanel() {
+        return rootPanel;
     }
 
-    public DefaultListModel getFoodItemsJListModel() {
-        return foodItemsJListModel;
-    }
-
-    public void setFoodItemsJListModel(DefaultListModel foodItemsJListModel) {
-        this.foodItemsJListModel = foodItemsJListModel;
-    }
-
-    public ObjectsWithNameList<FoodItem> getFoodItemsSimpleList() {
-        return foodItemsSimpleList;
-    }
-
-//    public void setFoodItemsSimpleList(ObjectsWithNameList<FoodItem> foodItemsSimpleList) {
-//        this.foodItemsSimpleList = foodItemsSimpleList;
-//    }
-
-    public JList getBreakfastJList() {
-        return breakfastJList;
-    }
-
-    public void setBreakfastJList(JList breakfastJList) {
-        this.breakfastJList = breakfastJList;
-    }
-
-    public JList getLunchJList() {
-        return lunchJList;
-    }
-
-    public void setLunchJList(JList lunchJList) {
-        this.lunchJList = lunchJList;
-    }
-
-    public JList getSecondBreakfastJList() {
-        return secondBreakfastJList;
-    }
-
-    public void setSecondBreakfastJList(JList secondBreakfastJList) {
-        this.secondBreakfastJList = secondBreakfastJList;
-    }
-
-    public JList getDinnerJList() {
-        return dinnerJList;
-    }
-
-    public void setDinnerJList(JList dinnerJList) {
-        this.dinnerJList = dinnerJList;
-    }
-
-    public JList getSecondDinnerJList() {
-        return secondDinnerJList;
-    }
-
-    public void setSecondDinnerJList(JList secondDinnerJList) {
-        this.secondDinnerJList = secondDinnerJList;
-    }
-
-    public static String getFoodItemsFormat() {
-        return FOOD_ITEMS_FORMAT;
+    public void setRootPanel(JPanel rootPanel) {
+        this.rootPanel = rootPanel;
     }
 
     {
@@ -810,9 +810,14 @@ public class GuiForm extends JFrame implements Forms {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
+        rootPanel = new JPanel();
+        rootPanel.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        final JScrollPane scrollPane1 = new JScrollPane();
+        rootPanel.add(scrollPane1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayoutManager(4, 5, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.setBackground(new Color(-872532));
+        scrollPane1.setViewportView(mainPanel);
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.setBackground(new Color(-872532));
@@ -825,11 +830,11 @@ public class GuiForm extends JFrame implements Forms {
         panel3.setLayout(new GridLayoutManager(4, 5, new Insets(0, 0, 0, 0), -1, -1));
         panel3.setBackground(new Color(-872532));
         panel2.add(panel3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(-1, 250), new Dimension(-1, 250), null, 0, false));
-        final JScrollPane scrollPane1 = new JScrollPane();
-        panel3.add(scrollPane1, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final JScrollPane scrollPane2 = new JScrollPane();
+        panel3.add(scrollPane2, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         dinnerJList = new JList();
         dinnerJList.setBackground(new Color(-11272));
-        scrollPane1.setViewportView(dinnerJList);
+        scrollPane2.setViewportView(dinnerJList);
         deleteFromDinnerButton = new JButton();
         deleteFromDinnerButton.setText("Удалить");
         panel3.add(deleteFromDinnerButton, new GridConstraints(3, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -1032,11 +1037,11 @@ public class GuiForm extends JFrame implements Forms {
         panel19.setLayout(new GridLayoutManager(4, 5, new Insets(0, 0, 0, 0), -1, -1));
         panel19.setBackground(new Color(-872532));
         panel18.add(panel19, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(-1, 250), new Dimension(-1, 250), null, 0, false));
-        final JScrollPane scrollPane2 = new JScrollPane();
-        panel19.add(scrollPane2, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final JScrollPane scrollPane3 = new JScrollPane();
+        panel19.add(scrollPane3, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         secondBreakfastJList = new JList();
         secondBreakfastJList.setBackground(new Color(-11272));
-        scrollPane2.setViewportView(secondBreakfastJList);
+        scrollPane3.setViewportView(secondBreakfastJList);
         deleteFromSecondBreakfastButton = new JButton();
         deleteFromSecondBreakfastButton.setText("Удалить");
         panel19.add(deleteFromSecondBreakfastButton, new GridConstraints(3, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -1114,11 +1119,11 @@ public class GuiForm extends JFrame implements Forms {
         panel22.setLayout(new GridLayoutManager(5, 5, new Insets(0, 0, 0, 0), -1, -1));
         panel22.setBackground(new Color(-872532));
         panel21.add(panel22, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(-1, 250), new Dimension(-1, 250), null, 0, false));
-        final JScrollPane scrollPane3 = new JScrollPane();
-        panel22.add(scrollPane3, new GridConstraints(1, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final JScrollPane scrollPane4 = new JScrollPane();
+        panel22.add(scrollPane4, new GridConstraints(1, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         lunchJList = new JList();
         lunchJList.setBackground(new Color(-11272));
-        scrollPane3.setViewportView(lunchJList);
+        scrollPane4.setViewportView(lunchJList);
         lunchCalloriesForItem = new JTextField();
         lunchCalloriesForItem.setBackground(new Color(-11272));
         panel22.add(lunchCalloriesForItem, new GridConstraints(2, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, -1), new Dimension(50, -1), null, 0, false));
@@ -1196,11 +1201,11 @@ public class GuiForm extends JFrame implements Forms {
         panel25.setLayout(new GridLayoutManager(4, 5, new Insets(0, 0, 0, 0), -1, -1));
         panel25.setBackground(new Color(-872532));
         panel24.add(panel25, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(-1, 250), new Dimension(-1, 250), null, 0, false));
-        final JScrollPane scrollPane4 = new JScrollPane();
-        panel25.add(scrollPane4, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final JScrollPane scrollPane5 = new JScrollPane();
+        panel25.add(scrollPane5, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         secondDinnerJList = new JList();
         secondDinnerJList.setBackground(new Color(-11272));
-        scrollPane4.setViewportView(secondDinnerJList);
+        scrollPane5.setViewportView(secondDinnerJList);
         deleteFromSecondDinnerButton = new JButton();
         deleteFromSecondDinnerButton.setText("Удалить");
         panel25.add(deleteFromSecondDinnerButton, new GridConstraints(3, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -1278,11 +1283,11 @@ public class GuiForm extends JFrame implements Forms {
         panel28.setLayout(new GridLayoutManager(4, 5, new Insets(0, 0, 0, 0), -1, -1));
         panel28.setBackground(new Color(-872532));
         panel27.add(panel28, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(-1, 250), new Dimension(-1, 250), null, 0, false));
-        final JScrollPane scrollPane5 = new JScrollPane();
-        panel28.add(scrollPane5, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final JScrollPane scrollPane6 = new JScrollPane();
+        panel28.add(scrollPane6, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         breakfastJList = new JList();
         breakfastJList.setBackground(new Color(-11272));
-        scrollPane5.setViewportView(breakfastJList);
+        scrollPane6.setViewportView(breakfastJList);
         breakfastWeightForItem = new JTextField();
         breakfastWeightForItem.setBackground(new Color(-11272));
         panel28.add(breakfastWeightForItem, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, -1), new Dimension(50, -1), null, 0, false));
@@ -1359,13 +1364,13 @@ public class GuiForm extends JFrame implements Forms {
         panel31.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel31.setBackground(new Color(-872532));
         mainPanel.add(panel31, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(710, 400), new Dimension(710, 400), null, 0, false));
-        final JScrollPane scrollPane6 = new JScrollPane();
-        panel31.add(scrollPane6, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final JScrollPane scrollPane7 = new JScrollPane();
+        panel31.add(scrollPane7, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         foodItemsJList = new JList();
         foodItemsJList.setBackground(new Color(-11272));
         final DefaultListModel defaultListModel1 = new DefaultListModel();
         foodItemsJList.setModel(defaultListModel1);
-        scrollPane6.setViewportView(foodItemsJList);
+        scrollPane7.setViewportView(foodItemsJList);
         final JPanel panel32 = new JPanel();
         panel32.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel32.setBackground(new Color(-872532));
@@ -1409,6 +1414,6 @@ public class GuiForm extends JFrame implements Forms {
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
-        return mainPanel;
+        return rootPanel;
     }
 }

@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.stream.Collectors;
 
-import static gui.GuiForm.foodItemsSimpleList;
+import static applaunch.Starter.foodItemsSimpleList;
 import static gui.GuiForm.secondBreakfastObject;
 
 public class DeleteFromSecondBreakfastButtonHandler extends Handlers implements ActionListener {

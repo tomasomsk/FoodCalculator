@@ -8,7 +8,8 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import static gui.GuiForm.foodItemsSimpleList;
+import static applaunch.Starter.foodItemsSimpleList;
+
 
 public class FoodItemsListSelectionHandler extends Handlers implements ListSelectionListener {
 

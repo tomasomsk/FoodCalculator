@@ -12,8 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.stream.Collectors;
 
+import static applaunch.Starter.foodItemsSimpleList;
 import static gui.GuiForm.dinnerObject;
-import static gui.GuiForm.foodItemsSimpleList;
 
 public class DeleteFromDinnerButtonHandler extends Handlers implements ActionListener {
 

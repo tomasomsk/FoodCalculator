@@ -1,5 +1,6 @@
 package gui.listeners.dinner;
 
+import applaunch.Starter;
 import gui.GuiForm;
 import gui.listeners.Handlers;
 import interfaces.Forms;
@@ -11,9 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.stream.Collectors;
 
+import static applaunch.Starter.foodItemsSimpleList;
 import static common.factories.PortionFactory.makePortion;
 import static gui.GuiForm.dinnerObject;
-import static gui.GuiForm.foodItemsSimpleList;
 
 public class InDinnerButtonHandler extends Handlers implements ActionListener {
 

@@ -11,9 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.stream.Collectors;
 
+import static applaunch.Starter.foodItemsSimpleList;
 import static common.factories.PortionFactory.makePortion;
 import static gui.GuiForm.secondDinnerObject;
-import static gui.GuiForm.foodItemsSimpleList;
 
 public class InSecondDinnerButtonHandler extends Handlers implements ActionListener {
 
