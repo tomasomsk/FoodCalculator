@@ -1,13 +1,13 @@
 package gui.listeners.breakfast;
 
-import gui.GuiForm;
 import gui.listeners.Handlers;
 import interfaces.Forms;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import static gui.GuiForm.breakfastObject;
+import static gui.GuiFormWithScroll.breakfastObject;
+
 
 public class BreakfastListSelectionHandler extends Handlers implements ListSelectionListener {
 

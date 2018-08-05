@@ -1,13 +1,12 @@
 package gui.listeners.lunch;
 
-import gui.GuiForm;
 import gui.listeners.Handlers;
 import interfaces.Forms;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import static gui.GuiForm.lunchObject;
+import static gui.GuiFormWithScroll.lunchObject;
 
 public class LunchListSelectionHandler extends Handlers implements ListSelectionListener {
 

@@ -1,6 +1,5 @@
 package gui.listeners;
 
-import gui.GuiForm;
 import interfaces.Forms;
 import model.FoodItem;
 

@@ -1,6 +1,5 @@
 package gui.listeners.breakfast;
 
-import gui.GuiForm;
 import gui.listeners.Handlers;
 import interfaces.Forms;
 import model.FoodItem;
@@ -13,7 +12,7 @@ import java.util.stream.Collectors;
 
 import static applaunch.Starter.foodItemsSimpleList;
 import static common.factories.PortionFactory.makePortion;
-import static gui.GuiForm.breakfastObject;
+import static gui.GuiFormWithScroll.breakfastObject;
 
 public class InBreakfastButtonHandler extends Handlers implements ActionListener {
 

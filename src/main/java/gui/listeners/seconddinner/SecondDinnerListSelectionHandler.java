@@ -1,13 +1,14 @@
 package gui.listeners.seconddinner;
 
-import gui.GuiForm;
+
 import gui.listeners.Handlers;
 import interfaces.Forms;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import static gui.GuiForm.secondDinnerObject;
+import static gui.GuiFormWithScroll.secondDinnerObject;
+
 
 public class SecondDinnerListSelectionHandler extends Handlers implements ListSelectionListener {
 
