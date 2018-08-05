@@ -43,14 +43,4 @@ public class DeleteFromSecondBreakfastButtonHandler extends Handlers implements 
                     gui.getSecondBreakfastCalloriesForItem());
         }
     }
-
-    public Portion getPortionToDelete(JList jlist, DefaultListModel jlistModel, FoodIntake foodIntakeObject) {
-        FoodItem foodItem = foodItemsSimpleList.getElementWithName(
-                getValueFromSelection(
-                        jlist.getSelectionModel(),
-                        jlistModel));
-        return foodIntakeObject.getPortions().stream()
-                .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
-                .collect(Collectors.toList()).get(0);
-    }
 }

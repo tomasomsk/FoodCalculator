@@ -53,32 +53,5 @@ public class Starter {
         guiFormWithScroll.getInSecondDinnerButton().addActionListener(new InSecondDinnerButtonHandler(guiFormWithScroll));
         guiFormWithScroll.getDeleteFromSecondDinnerButton().addActionListener(new DeleteFromSecondDinnerButtonHandler(guiFormWithScroll));
         guiFormWithScroll.getSecondDinnerJList().getSelectionModel().addListSelectionListener(new SecondDinnerListSelectionHandler(guiFormWithScroll));
-        
-
-//        GuiForm gui = new GuiForm();
-//        foodItemsSimpleList = importFoodItems();
-//        gui.fillFoodItemsList();
-//
-//        gui.getFoodItemsJList().getSelectionModel().addListSelectionListener(new FoodItemsListSelectionHandler(gui));
-//
-//        gui.getInBreakfastButton().addActionListener(new InBreakfastButtonHandler(gui));
-//        gui.getDeleteFromBreakfastButton().addActionListener(new DeleteFromBreakfastButtonHandler(gui));
-//        gui.getBreakfastJList().getSelectionModel().addListSelectionListener(new BreakfastListSelectionHandler(gui));
-//
-//        gui.getInSecondBreakfastButton().addActionListener(new InSecondBreakfastButtonHandler(gui));
-//        gui.getDeleteFromSecondBreakfastButton().addActionListener(new DeleteFromSecondBreakfastButtonHandler(gui));
-//        gui.getSecondBreakfastJList().getSelectionModel().addListSelectionListener(new SecondBreakfastListSelectionHandler(gui));
-//
-//        gui.getInLunchButton().addActionListener(new InLunchButtonHandler(gui));
-//        gui.getDeleteFromLunchButton().addActionListener(new DeleteFromLunchButtonHandler(gui));
-//        gui.getLunchJList().getSelectionModel().addListSelectionListener(new LunchListSelectionHandler(gui));
-//
-//        gui.getInDinnerButton().addActionListener(new InDinnerButtonHandler(gui));
-//        gui.getDeleteFromDinnerButton().addActionListener(new DeleteFromDinnerButtonHandler(gui));
-//        gui.getDinnerJList().getSelectionModel().addListSelectionListener(new DinnerListSelectionHandler(gui));
-//
-//        gui.getInSecondDinnerButton().addActionListener(new InSecondDinnerButtonHandler(gui));
-//        gui.getDeleteFromSecondDinnerButton().addActionListener(new DeleteFromSecondDinnerButtonHandler(gui));
-//        gui.getSecondDinnerJList().getSelectionModel().addListSelectionListener(new SecondDinnerListSelectionHandler(gui));
     }
 }

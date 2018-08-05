@@ -57,7 +57,8 @@ public class Handlers {
         // Добавляем названия продуктов в список продуктов конкретного приема пищи
         // Считает общую пищевую ценность для конкретного приема пищи
         for (Portion portionInFoodIntake : foodIntakeObject.getPortions()) {
-            listModel.addElement(portionInFoodIntake.getFoodItem().getName());
+            listModel.addElement(portionInFoodIntake.getFoodItem().getName() +
+                    "   ("+ String.valueOf(portionInFoodIntake.getWeight()).split("\\.")[0] + " гр.)");
             proteinCommonForCalculate += portionInFoodIntake.getNutrValue().getProtein();
             carboCommonForCalculate += portionInFoodIntake.getNutrValue().getCarbo();
             fatsCommonForCalculate += portionInFoodIntake.getNutrValue().getFats();
@@ -65,27 +66,27 @@ public class Handlers {
         }
         // Устснавливает значения в поля формы конкретного приема пищи
         jList.setModel(listModel);
-        proteinsCommon.setText(String.valueOf(round(proteinCommonForCalculate, 2)));
-        carboCommon.setText(String.valueOf(round(carboCommonForCalculate, 2)));
-        fatsCommon.setText(String.valueOf(round(fatsCommonForCalculate, 2)));
-        calloriesCommon.setText(String.valueOf(round(calloriesCommonForCalculate,2)));
+        proteinsCommon.setText(String.valueOf(round(proteinCommonForCalculate, 1)));
+        carboCommon.setText(String.valueOf(round(carboCommonForCalculate, 1)));
+        fatsCommon.setText(String.valueOf(round(fatsCommonForCalculate, 1)));
+        calloriesCommon.setText(String.valueOf(round(calloriesCommonForCalculate,1)));
 
         // Берет общую пищевую ценность у конкретного приема пищи
         Double proteinSum = (gui.getProteinSum().getText().equals("")) ? 0
-                : round(Double.parseDouble(gui.getProteinSum().getText()), 2);
+                : round(Double.parseDouble(gui.getProteinSum().getText()), 1);
         Double carboSum = (gui.getCarboSum().getText().equals("")) ? 0
-                : round(Double.parseDouble(gui.getCarboSum().getText()), 2);
+                : round(Double.parseDouble(gui.getCarboSum().getText()), 1);
         Double fatsSum = (gui.getFatsSum().getText().equals("")) ? 0
-                : round(Double.parseDouble(gui.getFatsSum().getText()), 2);
+                : round(Double.parseDouble(gui.getFatsSum().getText()), 1);
         Double calloriesSum = (gui.getCalloriesSum().getText().equals("")) ? 0
-                : round(Double.parseDouble(gui.getCalloriesSum().getText()), 2);
+                : round(Double.parseDouble(gui.getCalloriesSum().getText()), 1);
 
         if (direction.equals(PLUS)) {
             // Добавляет пищевую ценность конкретного приема пищи в общую пищевую ценность дневого рациона
-            proteinSum = proteinSum + portion.getFoodItem().getNutrValue().getProtein();
-            carboSum = carboSum + portion.getFoodItem().getNutrValue().getCarbo();
-            fatsSum = fatsSum + portion.getFoodItem().getNutrValue().getFats();
-            calloriesSum = calloriesSum + portion.getFoodItem().getNutrValue().getCallories();
+            proteinSum = proteinSum + portion.getFoodItem().getNutrValue().getProtein() * (portion.getWeight()/100);
+            carboSum = carboSum + portion.getFoodItem().getNutrValue().getCarbo() * (portion.getWeight()/100);
+            fatsSum = fatsSum + portion.getFoodItem().getNutrValue().getFats() * (portion.getWeight()/100);
+            calloriesSum = calloriesSum + portion.getFoodItem().getNutrValue().getCallories() * (portion.getWeight()/100);
 
             // Очищает значения пищевой ценности, т.к. снимается выделение с продукта в секции конкретного приема пищи
             weightForItem.setText("");
@@ -95,10 +96,10 @@ public class Handlers {
             calloriesForItem.setText("");
         } else {
             // Отнимает пищевую ценность конкретного приема пищи от общей пищевой ценности дневого рациона
-            proteinSum = proteinSum - portion.getFoodItem().getNutrValue().getProtein();
-            carboSum = carboSum - portion.getFoodItem().getNutrValue().getCarbo();
-            fatsSum = fatsSum - portion.getFoodItem().getNutrValue().getFats();
-            calloriesSum = calloriesSum - portion.getFoodItem().getNutrValue().getCallories();
+            proteinSum = proteinSum - portion.getFoodItem().getNutrValue().getProtein() * (portion.getWeight()/100);
+            carboSum = carboSum - portion.getFoodItem().getNutrValue().getCarbo() * (portion.getWeight()/100);
+            fatsSum = fatsSum - portion.getFoodItem().getNutrValue().getFats() * (portion.getWeight()/100);
+            calloriesSum = calloriesSum - portion.getFoodItem().getNutrValue().getCallories() * (portion.getWeight()/100);
 
             // Очищает значения пищевой ценности, т.к. снимается выделение с продукта в секции конкретного приема пищи
             weightForItem.setText("");
@@ -109,10 +110,10 @@ public class Handlers {
         }
 
         // Устанавливает значения в поля общей дневной пищевой ценности
-        gui.getProteinSum().setText(String.valueOf(round(proteinSum, 2)));
-        gui.getCarboSum().setText(String.valueOf(round(carboSum, 2 )));
-        gui.getFatsSum().setText(String.valueOf(round(fatsSum, 2)));
-        gui.getCalloriesSum().setText(String.valueOf(round(calloriesSum, 2)));
+        gui.getProteinSum().setText(String.valueOf(round(proteinSum, 1)));
+        gui.getCarboSum().setText(String.valueOf(round(carboSum, 1)));
+        gui.getFatsSum().setText(String.valueOf(round(fatsSum, 1)));
+        gui.getCalloriesSum().setText(String.valueOf(round(calloriesSum, 1)));
     }
 
     public void setItemsTextFieldsForFoodIntake(ListSelectionEvent e,
@@ -125,15 +126,25 @@ public class Handlers {
                                          JTextField weightForItem) {
         ListSelectionModel lsm = (ListSelectionModel) e.getSource();
         if (!lsm.isSelectionEmpty()) {
-            FoodItem foodItem = foodItemsSimpleList.getElementWithName(getValueFromSelection(lsm, listModel));
-            proteinForItem.setText(String.valueOf(foodItem.getNutrValue().getProtein()));
-            carboForItem.setText(String.valueOf(foodItem.getNutrValue().getCarbo()));
-            fatsForItem.setText(String.valueOf(foodItem.getNutrValue().getFats()));
-            calloriesForItem.setText(String.valueOf(foodItem.getNutrValue().getCallories()));
-            weightForItem.setText(String.valueOf(foodIntakeObject.getPortions().stream()
+            FoodItem foodItem = foodItemsSimpleList.getElementWithName(getValueFromSelection(lsm, listModel).split("\\(")[0].trim());
+            Double weight = foodIntakeObject.getPortions().stream()
                     .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
-                    .collect(Collectors.toList()).get(0).getWeight()));
+                    .collect(Collectors.toList()).get(0).getWeight();
+            weightForItem.setText(String.valueOf(weight));
+            proteinForItem.setText(String.valueOf(round(foodItem.getNutrValue().getProtein() * (weight/100),1)));
+            carboForItem.setText(String.valueOf(round(foodItem.getNutrValue().getCarbo() * (weight/100), 1)));
+            fatsForItem.setText(String.valueOf(round(foodItem.getNutrValue().getFats() * (weight/100), 1)));
+            calloriesForItem.setText(String.valueOf(round(foodItem.getNutrValue().getCallories() * (weight/100), 1)));
         }
     }
 
+    public Portion getPortionToDelete(JList jlist, DefaultListModel jlistModel, FoodIntake foodIntakeObject) {
+        FoodItem foodItem = foodItemsSimpleList.getElementWithName(
+                getValueFromSelection(
+                        jlist.getSelectionModel(),
+                        jlistModel).split("\\(")[0].trim());
+        return foodIntakeObject.getPortions().stream()
+                .filter(item -> item.getFoodItem().getName().equals(foodItem.getName()))
+                .collect(Collectors.toList()).get(0);
+    }
 }

@@ -14,10 +14,10 @@ public class PortionFactory {
         portion.setWeight(weight);
         Double weightForCalculation = weight / 100;
         NutrititionalValue nutrititionalValue = new NutrititionalValue();
-        nutrititionalValue.setProtein(round(foodItem.getNutrValue().getProtein() * weightForCalculation, 2));
-        nutrititionalValue.setCarbo(round(foodItem.getNutrValue().getCarbo() * weightForCalculation, 2));
-        nutrititionalValue.setFats(round(foodItem.getNutrValue().getFats() * weightForCalculation, 2));
-        nutrititionalValue.setCallories(round(foodItem.getNutrValue().getCallories() * weightForCalculation, 2 ));
+        nutrititionalValue.setProtein(round(foodItem.getNutrValue().getProtein() * weightForCalculation, 1));
+        nutrititionalValue.setCarbo(round(foodItem.getNutrValue().getCarbo() * weightForCalculation, 1));
+        nutrititionalValue.setFats(round(foodItem.getNutrValue().getFats() * weightForCalculation, 1));
+        nutrititionalValue.setCallories(round(foodItem.getNutrValue().getCallories() * weightForCalculation, 1));
         portion.setNutrValue(nutrititionalValue);
         return portion;
     }
