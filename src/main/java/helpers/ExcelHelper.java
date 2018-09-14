@@ -1,23 +1,24 @@
-package excel;
+package helpers;
 
 import apiobjectswithname.ObjectsWithNameList;
+import model.FoodIntake;
 import model.FoodItem;
 import model.NutrititionalValue;
 import org.apache.commons.io.IOUtils;
+import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Objects;
 
+import static gui.GuiFormWithScroll.getFoodIntakesObjects;
 import static properties.Props.getProperty;
 
 /**
@@ -25,6 +26,10 @@ import static properties.Props.getProperty;
  */
 public class ExcelHelper {
 
+    /**
+     * Считывание из файла Excel списка продуктов
+     * @return - список продуктов с их пищевой ценностью на 100 граммов
+     */
     public static ObjectsWithNameList<FoodItem> importFoodItems() {
         ObjectsWithNameList<FoodItem> result = new ObjectsWithNameList<>(new ArrayList<>());
 
@@ -48,16 +53,20 @@ public class ExcelHelper {
         return result;
     }
 
-
-
+    /**
+     *
+     * @param fileName - имя файла
+     * @param sheetNum - номер листа (начинается с 0)
+     * @return - указанный лист из указанного файла Excel
+     */
     private static XSSFSheet getSheetFromFile(String fileName, int sheetNum) {
         InputStream fis = null;
         try {
             ClassLoader classLoader = ExcelHelper.class.getClassLoader();
-            //Create excel book from file
+            //Create helpers book from file
             fis = classLoader.getResourceAsStream(fileName);
             XSSFWorkbook book = new XSSFWorkbook(fis);
-            //Create excel sheet
+            //Create helpers sheet
             return book.getSheetAt(sheetNum);
         } catch (IOException e) {
             throw new RuntimeException("Ошибка при извлечении листа из книги Excel " + fileName, e);
@@ -66,6 +75,11 @@ public class ExcelHelper {
         }
     }
 
+    /**
+     *
+     * @param cell - ячейка
+     * @return - значение из ячейки
+     */
     private static String getValueFromCell(XSSFCell cell) {
         if (cell != null) {
             cell.setCellType(1);
@@ -73,5 +87,11 @@ public class ExcelHelper {
         } else {
             return "";
         }
+    }
+
+    public static void writeToFile(String absolutePath) {
+        Workbook workbook = new XSSFWorkbook();
+        ObjectsWithNameList<FoodIntake> foodIntakes = getFoodIntakesObjects();
+
     }
 }

@@ -5,6 +5,12 @@ import java.math.RoundingMode;
 
 public class CommonMethods {
 
+    /**
+     * Округление числа до указанного кол-ва знаков после запятой
+     * @param value - число, которое необходимо округлить
+     * @param places - кол-во знаков после запятой
+     * @return - округленное число
+     */
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 

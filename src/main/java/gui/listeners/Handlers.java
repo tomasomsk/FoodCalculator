@@ -25,6 +25,12 @@ public class Handlers {
         this.gui = gui;
     }
 
+    /**
+     *
+     * @param lsm - ListSelectionModel
+     * @param listModel - listModel
+     * @return - значение из выделенной на UI строки
+     */
     public String getValueFromSelection(ListSelectionModel lsm, DefaultListModel listModel) {
         int minIndex = lsm.getMinSelectionIndex();
         int maxIndex = lsm.getMaxSelectionIndex();
@@ -36,6 +42,9 @@ public class Handlers {
         return null;
     }
 
+    /*
+    Расчет показателей пищевой ценности и установка значений в поля формы
+     */
     public void calculateFoodIntakeIndicators(Portion portion, FoodIntake foodIntakeObject, String direction,
                                               DefaultListModel listModel, JList jList,
                                               JTextField proteinsCommon,
@@ -88,12 +97,6 @@ public class Handlers {
             fatsSum = fatsSum + portion.getFoodItem().getNutrValue().getFats() * (portion.getWeight()/100);
             calloriesSum = calloriesSum + portion.getFoodItem().getNutrValue().getCallories() * (portion.getWeight()/100);
 
-            // Очищает значения пищевой ценности, т.к. снимается выделение с продукта в секции конкретного приема пищи
-            weightForItem.setText("");
-            proteinForItem.setText("");
-            carboForItem.setText("");
-            fatsForItem.setText("");
-            calloriesForItem.setText("");
         } else {
             // Отнимает пищевую ценность конкретного приема пищи от общей пищевой ценности дневого рациона
             proteinSum = proteinSum - portion.getFoodItem().getNutrValue().getProtein() * (portion.getWeight()/100);
@@ -101,13 +104,11 @@ public class Handlers {
             fatsSum = fatsSum - portion.getFoodItem().getNutrValue().getFats() * (portion.getWeight()/100);
             calloriesSum = calloriesSum - portion.getFoodItem().getNutrValue().getCallories() * (portion.getWeight()/100);
 
-            // Очищает значения пищевой ценности, т.к. снимается выделение с продукта в секции конкретного приема пищи
-            weightForItem.setText("");
-            proteinForItem.setText("");
-            carboForItem.setText("");
-            fatsForItem.setText("");
-            calloriesForItem.setText("");
+
         }
+
+        // Очищает значения пищевой ценности для продукта в секции конкретного приема пищи, т.к. снимается выделение с продукта
+        clearNutrValueFromUi(weightForItem, proteinForItem, carboForItem, fatsForItem, calloriesForItem);
 
         // Устанавливает значения в поля общей дневной пищевой ценности
         gui.getProteinSum().setText(String.valueOf(round(proteinSum, 1)));
@@ -116,6 +117,18 @@ public class Handlers {
         gui.getCalloriesSum().setText(String.valueOf(round(calloriesSum, 1)));
     }
 
+    private void clearNutrValueFromUi(JTextField weightForItem, JTextField proteinForItem, JTextField carboForItem, JTextField fatsForItem, JTextField calloriesForItem) {
+        // Очищает значения пищевой ценности, т.к. снимается выделение с продукта в секции конкретного приема пищи
+        weightForItem.setText("");
+        proteinForItem.setText("");
+        carboForItem.setText("");
+        fatsForItem.setText("");
+        calloriesForItem.setText("");
+    }
+
+    /*
+    Установка значений пищевой ценности в поля формы для конкретноо продукта в соответствии с массой, при выборе продукта в секции конкретного приема пищи
+     */
     public void setItemsTextFieldsForFoodIntake(ListSelectionEvent e,
                                          FoodIntake foodIntakeObject,
                                          DefaultListModel listModel,
