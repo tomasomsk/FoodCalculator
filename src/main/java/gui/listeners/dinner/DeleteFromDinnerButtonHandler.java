@@ -2,16 +2,12 @@ package gui.listeners.dinner;
 
 import gui.listeners.Handlers;
 import interfaces.Forms;
-import model.FoodIntake;
-import model.FoodItem;
 import model.Portion;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.stream.Collectors;
 
-import static applaunch.Starter.foodItemsSimpleList;
 import static gui.GuiFormWithScroll.dinnerObject;
 
 public class DeleteFromDinnerButtonHandler extends Handlers implements ActionListener {
